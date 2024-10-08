@@ -29,7 +29,7 @@ class uploadprofileImageScreen extends StatelessWidget {
       getxController.imagePath.value = '';
     }, builder: (themecontroller) {
       return AnnotatedRegion(
-        value: themecontroller.systemUiOverlayStyleForwhite,
+        value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
         child: Scaffold(
           resizeToAvoidBottomInset: true,
           appBar: AppBar(

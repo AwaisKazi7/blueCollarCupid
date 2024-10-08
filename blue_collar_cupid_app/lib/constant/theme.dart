@@ -6,12 +6,12 @@ import 'package:hexcolor/hexcolor.dart';
 class ThemeHelper extends GetxController {
   RxBool isDarkTheme = false.obs;
 
-  static const colortoast = const Color(0xFFf7746c);
+  static const colortoast = Color.fromARGB(255, 88, 156, 253);
   static const colortoasttext = const Color(0xffffffff);
 
   final colorPrimary = HexColor('#E65C19');
-  final colorPrimaryBlue = HexColor('#002252');
-  
+  final colorPrimaryBlue = HexColor('#3498DB');
+
   final greenheadingColor = HexColor('#14ae5c');
   final colorCanvas = const Color(0xFFfecdca);
 
@@ -201,7 +201,7 @@ class ThemeHelper extends GetxController {
 
   SystemUiOverlayStyle get systemUiOverlayStyleForPrimary =>
       SystemUiOverlayStyle(
-        statusBarColor:Color(0xff85a4e7),
+        statusBarColor: Color(0xff85a4e7),
         systemNavigationBarColor: Color(0xffffffff),
         statusBarIconBrightness:
             isDarkTheme.value ? Brightness.light : Brightness.dark,
@@ -219,9 +219,10 @@ class ThemeHelper extends GetxController {
             isDarkTheme.value ? Brightness.dark : Brightness.light,
       );
 
-  SystemUiOverlayStyle get systemUiOverlayStyleForwhite => SystemUiOverlayStyle(
-        statusBarColor: Color.fromARGB(255, 255, 255, 255),
-        systemNavigationBarColor: Color.fromARGB(255, 255, 255, 255),
+  SystemUiOverlayStyle get systemUiOverlayStyleForwelcomeScreen =>
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: HexColor('#3498DB'),
         statusBarBrightness:
             isDarkTheme.value ? Brightness.dark : Brightness.light,
         statusBarIconBrightness:
@@ -229,7 +230,7 @@ class ThemeHelper extends GetxController {
         systemNavigationBarIconBrightness:
             isDarkTheme.value ? Brightness.dark : Brightness.light,
       );
-  SystemUiOverlayStyle get systemUiOverlayStyleForAuth => SystemUiOverlayStyle(
+  SystemUiOverlayStyle get systemUiOverlayStyleForwhite => SystemUiOverlayStyle(
         statusBarColor: const Color.fromARGB(255, 255, 255, 255),
         systemNavigationBarColor: const Color.fromARGB(255, 255, 255, 255),
         statusBarBrightness:

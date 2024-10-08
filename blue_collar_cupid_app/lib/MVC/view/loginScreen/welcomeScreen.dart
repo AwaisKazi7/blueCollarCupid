@@ -1,4 +1,6 @@
 import 'dart:developer';
+import 'package:blue_collar_cupid_app/MVC/view/loginScreen/loginWithPhoneScreen.dart';
+import 'package:blue_collar_cupid_app/components/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,6 +10,7 @@ import 'package:blue_collar_cupid_app/constant/constants.dart';
 import 'package:blue_collar_cupid_app/constant/navigation.dart';
 import 'package:blue_collar_cupid_app/constant/theme.dart';
 import 'package:get/get.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../helper/data_storage.dart';
@@ -71,41 +74,114 @@ class _welcomeScreenState extends State<welcomeScreen> {
     return GetBuilder<ThemeHelper>(initState: (state) async {
       await _requestLocationPermission();
     }, builder: (themecontroller) {
-      return Scaffold(
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: Constants.screenPadding),
-          decoration: BoxDecoration(color: themecontroller.backgoundcolor),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // "assets/images/titleLogo.png",
-              Expanded(flex: 2, child: SizedBox(height: 30.sp)),
-              Container(
-                height: 500.sp,
-                width: double.infinity,
+      return AnnotatedRegion(
+        value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
+        child: Scaffold(
+            body: Column(
+          children: [
+            Expanded(
+                flex: 4,
+                child: Container(
+                  decoration: const BoxDecoration(
+                      // color: Colors.amber,
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            "assets/images/welocmebg.png",
+                          ))),
+                )),
+            Expanded(
+              flex: 2,
+              child: Container(
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage(
-                          "assets/images/logo.png",
-                        ))),
+                  color: themecontroller.colorPrimaryBlue,
+                  boxShadow: [
+                    BoxShadow(
+                      color: themecontroller.colorPrimaryBlue
+                          .withOpacity(0.9), // Shadow color
+                      offset: Offset(0, -5),
+                      blurRadius: 60,
+                      spreadRadius: 60,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RoundButton(
+                      height: 45.sp,
+                      title: 'Get started',
+                      textColor: Colors.black.withOpacity(0.5),
+                      onTap: () {
+                        Navigation.getInstance.RightToLeft_PageNavigation(
+                            context, SignInScreen());
+                      },
+                    ),
+                    SizedBox(
+                      height: 10.sp,
+                    ),
+                    RoundButton(
+                      height: 45.sp,
+                      backgroundColor: themecontroller.colorPrimaryBlue,
+                      title: 'Use Mobile Number',
+                      borderWidth: 1.sp,
+                      textColor: Colors.white,
+                      onTap: () {
+                        Navigation.getInstance.RightToLeft_PageNavigation(
+                            context, loginwithPhoneScreen());
+                      },
+                    ),
+                    SizedBox(
+                      height: 20.sp,
+                    ),
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'By signing up you agree to our',
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.7),
+                              fontSize: 10.sp,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' Terms',
+                            style: TextStyle(
+                                color: Colors.white.withOpacity(0.7),
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ' and\n',
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.7),
+                              fontSize: 10.sp,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Privacy Policy',
+                            style: TextStyle(
+                                color: Colors.white.withOpacity(0.7),
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ' we protect your personal data',
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.7),
+                              fontSize: 10.sp,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-              Expanded(flex: 1, child: SizedBox(height: 30.sp)),
-
-              SpringWidget(
-                  onTap: () async {
-                    if (DataStroge.userToken.value == '') {
-                      Navigation.getInstance.pagePushAndReplaceNavigation(
-                          context, SignInScreen());
-                    } else if (DataStroge.userRole.value == 'USER') {
-                    } else {}
-                  },
-                  child: CircleAvatar()),
-              Expanded(flex: 4, child: SizedBox(height: 30.sp)),
-            ],
-          ),
-        ),
+            )
+          ],
+        )),
       );
     });
   }

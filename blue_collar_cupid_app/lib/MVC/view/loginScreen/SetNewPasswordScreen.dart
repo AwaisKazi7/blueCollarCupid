@@ -1,113 +1,132 @@
+import 'package:blue_collar_cupid_app/MVC/view/loginScreen/SignInScreen.dart';
+import 'package:blue_collar_cupid_app/MVC/view/loginScreen/forgetPasswordScreen.dart';
+import 'package:blue_collar_cupid_app/components/logintextfield.dart';
+import 'package:blue_collar_cupid_app/helper/getx_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:blue_collar_cupid_app/components/custom_textfiled.dart';
-import 'package:blue_collar_cupid_app/constant/constants.dart';
+import 'package:blue_collar_cupid_app/components/spring_widget.dart';
+import 'package:blue_collar_cupid_app/constant/navigation.dart';
 import 'package:blue_collar_cupid_app/constant/theme.dart';
-import 'package:blue_collar_cupid_app/services/app_service.dart';
 import 'package:get/get.dart';
 import '../../../components/round_button.dart';
+import '../../../constant/flutter_toast.dart';
 import '../../../helper/internet_controller.dart';
 
 class SetNewPasswordScreen extends StatelessWidget {
-  SetNewPasswordScreen({super.key, required this.email});
-  final String email;
-  final internetController = Get.put(InternetController());
+  SetNewPasswordScreen({super.key});
 
+  final internetController = Get.put(InternetController());
   final _formkey = GlobalKey<FormState>();
 
-  final ConfirmPasswordController = TextEditingController();
+  final confirmController = TextEditingController();
   final PasswordController = TextEditingController();
-  final FocusNode _ConfirmpasswordFocusNode = FocusNode();
-  final FocusNode _passwordFocusNode = FocusNode();
-  RxBool showpassword = true.obs;
-  RxBool showConfirmpassword = true.obs;
+  RxBool showPassword = true.obs;
+  RxBool showConfirmPassword = true.obs;
+  final FocusNode _ConfirmPasswordFocusNode = FocusNode();
+  final FocusNode _PasswordFocusNode = FocusNode();
+
   RxBool apihitting = false.obs;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeHelper>(builder: (themecontroller) {
-      return AnnotatedRegion(
-        value: themecontroller.systemUiOverlayStyleForwhite,
-        child: Scaffold(
-          backgroundColor: themecontroller.backgoundcolor,
-          resizeToAvoidBottomInset: true,
-          appBar: AppBar(
-            backgroundColor: themecontroller.backgoundcolor,
-              centerTitle: true,
-              // title: Text(
-              //   'Set New Password',
-              //   style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
-              // )
-              ),
-          body: Container(
-            height: 550.sp,
-            decoration: BoxDecoration(
-              color: themecontroller.backgoundcolor,
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: themecontroller.backgoundcolor.withOpacity(0.4),
-              //     spreadRadius: 9.5,
-              //     blurRadius: 40,
-              //     offset: const Offset(0, 2), // changes position of shadow
-              //   ),
-              // ],
-              // borderRadius: BorderRadius.only(
-              //     topLeft: Radius.circular(10.sp),
-              //     topRight: Radius.circular(10.sp))
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: Constants.screenPadding),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 20.sp,
-                        ),
-                        Center(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Set New Password',
-                                style: TextStyle(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w600),
+    return GetBuilder<ThemeHelper>(
+        initState: (state) {},
+        builder: (themecontroller) {
+          return AnnotatedRegion(
+            value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
+            child: Scaffold(
+              backgroundColor: themecontroller.backgoundcolor,
+              resizeToAvoidBottomInset: true,
+              body: Container(
+                decoration: BoxDecoration(
+                  color: themecontroller.backgoundcolor,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 20.sp,
+                            ),
+                            Container(
+                              height: 150.sp,
+                              width: 150.sp,
+                              decoration: const BoxDecoration(
+
+                                  // color: Colors.amber,
+                                  image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: AssetImage(
+                                        "assets/images/logo.png",
+                                      ))),
+                            ),
+                          ],
+                        )),
+                    Expanded(
+                      flex: 3,
+                      child: Form(
+                        key: _formkey,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: themecontroller.colorPrimaryBlue,
+                            boxShadow: [
+                              BoxShadow(
+                                color: themecontroller.colorPrimaryBlue
+                                    .withOpacity(0.9), // Shadow color
+                                offset: Offset(0, 5),
+                                blurRadius: 30,
+                                spreadRadius: 0,
                               ),
-                              Text(
-                                'Setup your new password so you can Login',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 12.sp,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.normal),
-                              )
                             ],
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20.sp),
+                                topRight: Radius.circular(20.sp)),
                           ),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Form(
-                            key: _formkey,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.sp),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Obx(() => CustomTextFieldWidget(
+                                SizedBox(
+                                  height: 20.sp,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Set New Password',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 30.sp,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Set new password so you \ncan login',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15.sp,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 50.sp,
+                                ),
+                                Obx(() => loginTextFieldWidget(
                                       enabled: true,
-                                      label: 'Enter New Password',
-                                      controller: ConfirmPasswordController,
-                                      hintText: "Enter password",
+                                      label: '',
+                                      controller: PasswordController,
+                                      hintText: "Password",
                                       inputType: TextInputType.visiblePassword,
-                                      obscureText: showConfirmpassword.value,
-                                      focusNode: _ConfirmpasswordFocusNode,
-                                      onsubmit: () {},
+                                      obscureText: showPassword.value,
+                                      focusNode: _PasswordFocusNode,
                                       onchange: (value) {
                                         apihitting.value = false;
                                       },
@@ -119,27 +138,28 @@ class SetNewPasswordScreen extends StatelessWidget {
                                       suffixIcon: GestureDetector(
                                         behavior: HitTestBehavior.translucent,
                                         onTap: () {
-                                          showConfirmpassword.value =
-                                              !showConfirmpassword.value;
+                                          showPassword.value =
+                                              !showPassword.value;
                                         },
                                         child: Icon(
-                                          showConfirmpassword.value
+                                          showPassword.value
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: themecontroller.textcolor
-                                              .withOpacity(0.5),
+                                          color: Colors.white,
                                         ),
                                       ),
                                     )),
-                                Obx(() => CustomTextFieldWidget(
+                                SizedBox(
+                                  height: 10.sp,
+                                ),
+                                Obx(() => loginTextFieldWidget(
                                       enabled: true,
-                                      label: 'Re-type Password',
-                                      controller: PasswordController,
-                                      hintText: "Re-type Password",
+                                      label: '',
+                                      controller: confirmController,
+                                      hintText: "Confirm Password",
                                       inputType: TextInputType.visiblePassword,
-                                      obscureText: showpassword.value,
-                                      focusNode: _passwordFocusNode,
-                                      onsubmit: () {},
+                                      obscureText: showConfirmPassword.value,
+                                      focusNode: _ConfirmPasswordFocusNode,
                                       onchange: (value) {
                                         apihitting.value = false;
                                       },
@@ -151,15 +171,14 @@ class SetNewPasswordScreen extends StatelessWidget {
                                       suffixIcon: GestureDetector(
                                         behavior: HitTestBehavior.translucent,
                                         onTap: () {
-                                          showpassword.value =
-                                              !showpassword.value;
+                                          showConfirmPassword.value =
+                                              !showConfirmPassword.value;
                                         },
                                         child: Icon(
-                                          showpassword.value
+                                          showConfirmPassword.value
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: themecontroller.textcolor
-                                              .withOpacity(0.5),
+                                          color: Colors.white,
                                         ),
                                       ),
                                     )),
@@ -167,53 +186,72 @@ class SetNewPasswordScreen extends StatelessWidget {
                                 Obx(() => RoundButton(
                                       gradient: false,
                                       margin: 0,
-                                      backgroundColor:
-                                          themecontroller.colorPrimary,
-                                      height: 60.sp,
+                                      backgroundColor: Colors.white,
+                                      height: 45.sp,
+                                      borderRadius: 10.sp,
                                       loading: apihitting.value,
                                       disabled: apihitting.value,
-                                      title: 'Change Password',
+                                      title: 'Set New Password',
+                                      borderColor: Colors.white,
+                                      borderWidth: 1.sp,
                                       iconColor: themecontroller.colorwhite,
-                                      textColor: themecontroller.colorwhite,
+                                      textColor: Colors.black.withOpacity(0.5),
                                       onTap: () async {
                                         await internetController
                                             .internetCheckerFun();
 
                                         if (_formkey.currentState!.validate()) {
-                                          // if (internetController
-                                          //         .isInternetConnected.value ==
-                                          //     true) {
-                                          if (PasswordController.text ==
-                                              ConfirmPasswordController.text) {
-                                            apihitting.value = true;
+                                          if (confirmController.text ==
+                                              PasswordController.text) {
+                                            if (internetController
+                                                    .isInternetConnected
+                                                    .value ==
+                                                true) {
+                                              apihitting.value = true;
 
-                                            // await AppService.getInstance
-                                            //     .SetNewPassword(
-                                            //         context,
-                                            //         PasswordController.text,
-                                            //         email);
+                                              // if (emailController.text ==
+                                              //     'driver@gmail.com') {
+                                              //   Navigation.getInstance
+                                              //       .RightToLeft_PageNavigation(
+                                              //           context, DriverHomeScreen());
+                                              // } else {
+                                              //   Navigation.getInstance
+                                              //       .RightToLeft_PageNavigation(
+                                              //           context, UserHomeScreen());
+                                              // }
+                                              // await AppService.getInstance.login(
+                                              //     context,
+                                              //     emailController.text,
+                                              //     PasswordController.text);
+                                              Navigation.getInstance
+                                                  .pagePushAndReplaceNavigation(
+                                                      context, SignInScreen());
+
+                                              apihitting.value = false;
+                                            } else {
+                                              FlutterToastDisplay.getInstance
+                                                  .showToast(
+                                                      "Please check your internet");
+                                            }
                                           } else {
-                                            Fluttertoast.showToast(
-                                                msg: "Password Doesn't match");
+                                            FlutterToastDisplay.getInstance
+                                                .showToast(
+                                                    "Password doesnot match");
                                           }
                                         }
                                       },
                                     )),
-                                // SizedBox(height: 20.sp),
                               ],
                             ),
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-                // const SizedBox(height: Constants.screenPadding),
-              ],
+              ),
             ),
-          ),
-        ),
-      );
-    });
+          );
+        });
   }
 }

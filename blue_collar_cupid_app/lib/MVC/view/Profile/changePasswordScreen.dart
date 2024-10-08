@@ -32,7 +32,7 @@ class ChangePsswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-          value: themecontroller.systemUiOverlayStyleForwhite,
+          value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
           child: SafeArea(
             child: Scaffold(
               backgroundColor: themecontroller.backgoundcolor,
@@ -68,6 +68,7 @@ class ChangePsswordScreen extends StatelessWidget {
                         controller: oldPasswordcontroller,
                         hintText: '',
                         inputType: TextInputType.name,
+                        onsubmit: () {},
                         TextColor: Colors.black,
                         focusNode: _oldPasswordFocusNode,
                         label: 'Enter you old Password',
@@ -77,12 +78,12 @@ class ChangePsswordScreen extends StatelessWidget {
                           }
                         },
                         enabled: true,
-                        onsubmit: () {},
                       ),
                       CustomTextFieldWidget(
                         controller: NewPasswordcontroller,
                         hintText: '',
                         inputType: TextInputType.name,
+                        onsubmit: () {},
                         TextColor: Colors.black,
                         focusNode: _NewPasswordFocusNode,
                         label: 'Enter New Password',
@@ -92,17 +93,16 @@ class ChangePsswordScreen extends StatelessWidget {
                           }
                         },
                         enabled: true,
-                        onsubmit: () {},
                       ),
                       CustomTextFieldWidget(
                         controller: ConfirmPasswordcontroller,
                         hintText: '',
                         inputType: TextInputType.name,
+                        onsubmit: () {},
                         TextColor: Colors.black,
                         focusNode: _ConfirmPasswordFocusNode,
                         label: 'Enter Password to Confirm',
                         enabled: false,
-                        onsubmit: () {},
                       ),
                       Expanded(
                         child: SizedBox(

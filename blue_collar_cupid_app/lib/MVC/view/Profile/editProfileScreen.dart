@@ -35,7 +35,7 @@ class EditProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-          value: themecontroller.systemUiOverlayStyleForwhite,
+          value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
           child: SafeArea(
             child: Scaffold(
               resizeToAvoidBottomInset: true,
@@ -95,6 +95,7 @@ class EditProfileScreen extends StatelessWidget {
                           controller: fullnameController,
                           hintText: '',
                           inputType: TextInputType.name,
+                          onsubmit: () {},
                           TextColor: Colors.black,
                           label: DataStroge.FullName.value == ''
                               ? 'Full Name'
@@ -106,7 +107,6 @@ class EditProfileScreen extends StatelessWidget {
                             }
                           },
                           enabled: true,
-                          onsubmit: () {},
                         ),
                         CustomTextFieldWidget(
                           controller: usernameController,
@@ -115,6 +115,7 @@ class EditProfileScreen extends StatelessWidget {
                               //     ?
                               'User Name',
                           // : DataStroge.userPhone.value,
+                          onsubmit: () {},
                           inputType: TextInputType.name,
                           TextColor: Colors.black,
                           label: DataStroge.userName.value == ''
@@ -127,7 +128,6 @@ class EditProfileScreen extends StatelessWidget {
                             }
                           },
                           enabled: true,
-                          onsubmit: () {},
                         ),
                         // CustomTextFieldWidget(
                         //   controller: Phonecontroller,
@@ -144,7 +144,7 @@ class EditProfileScreen extends StatelessWidget {
                         //     }
                         //   },
                         //   enabled: true,
-                        //   onsubmit: () {},
+                        //
                         // ),
                         // Row(
                         //   children: [
@@ -163,7 +163,7 @@ class EditProfileScreen extends StatelessWidget {
                         //           }
                         //         },
                         //         enabled: true,
-                        //         onsubmit: () {},
+                        //
                         //       ),
                         //     ),
                         //     SizedBox(
@@ -184,7 +184,7 @@ class EditProfileScreen extends StatelessWidget {
                         //           }
                         //         },
                         //         enabled: true,
-                        //         onsubmit: () {},
+                        //
                         //       ),
                         //     ),
                         //   ],
@@ -206,7 +206,7 @@ class EditProfileScreen extends StatelessWidget {
                         //           }
                         //         },
                         //         enabled: true,
-                        //         onsubmit: () {},
+                        //
                         //       ),
                         //     ),
                         //     SizedBox(
@@ -227,7 +227,7 @@ class EditProfileScreen extends StatelessWidget {
                         //           }
                         //         },
                         //         enabled: true,
-                        //         onsubmit: () {},
+                        //
                         //       ),
                         //     ),
                         //   ],
@@ -249,7 +249,7 @@ class EditProfileScreen extends StatelessWidget {
                         //           }
                         //         },
                         //         enabled: true,
-                        //         onsubmit: () {},
+                        //
                         //       ),
                         //     ),
                         //     SizedBox(
@@ -270,7 +270,7 @@ class EditProfileScreen extends StatelessWidget {
                         //           }
                         //         },
                         //         enabled: true,
-                        //         onsubmit: () {},
+                        //
                         //       ),
                         //     ),
                         //   ],
@@ -288,7 +288,7 @@ class EditProfileScreen extends StatelessWidget {
                         //     }
                         //   },
                         //   enabled: true,
-                        //   onsubmit: () {},
+                        //
                         // ),
                         SizedBox(
                           height: 20.sp,

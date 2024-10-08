@@ -41,7 +41,7 @@ class ImagePickerBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-        value: themecontroller.systemUiOverlayStyleForwhite,
+        value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.20,
           decoration: BoxDecoration(

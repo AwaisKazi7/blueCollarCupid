@@ -1,16 +1,8 @@
-import 'package:blue_collar_cupid_app/MVC/model/placesModel.dart';
-import 'package:blue_collar_cupid_app/MVC/model/vehiclePriceModel.dart';
-import 'package:blue_collar_cupid_app/services/app_service.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class homeController extends GetxController {
   var Placesloading = false.obs;
   
-
-  RxList<PlaceModel> placesList = <PlaceModel>[].obs;
-  RxList<VehiclePrice> VehiclePriceList = <VehiclePrice>[].obs;
-
 //-----Driver form one
   RxString drivercity = ''.obs;
   RxString driverstate = ''.obs;

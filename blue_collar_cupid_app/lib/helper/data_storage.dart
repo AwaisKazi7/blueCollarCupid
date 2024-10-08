@@ -1,9 +1,6 @@
 import 'dart:developer';
-
-import 'package:blue_collar_cupid_app/MVC/model/authModel.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../services/app_service.dart';
 
 class DataStroge extends GetxController {
@@ -43,27 +40,27 @@ class DataStroge extends GetxController {
     AppService.getInstance.updateDioHeaders();
   }
 
-  Future<void> insertUserData(authModel userData) async {
-    final SharedPreferences prefs = await _prefs;
+  // Future<void> insertUserData(authModel userData) async {
+  //   final SharedPreferences prefs = await _prefs;
 
-    await prefs.setString('token', userData.token);
-    await prefs.setString('id', userData.id.toString());
-    await prefs.setString('fullName', userData.fullName);
-    await prefs.setString('userName', userData.userName);
-    await prefs.setString('email', userData.email);
-    await prefs.setString('role', userData.userRole);
-    await prefs.setString('DVS', userData.dvs);
+  //   await prefs.setString('token', userData.token);
+  //   await prefs.setString('id', userData.id.toString());
+  //   await prefs.setString('fullName', userData.fullName);
+  //   await prefs.setString('userName', userData.userName);
+  //   await prefs.setString('email', userData.email);
+  //   await prefs.setString('role', userData.userRole);
+  //   await prefs.setString('DVS', userData.dvs);
 
-    // Initiate the session
-    await initiateSession();
-    FullName.value = userData.fullName;
-    userName.value = userData.userName;
-    userEmail.value = userData.email;
-    userRole.value = userData.userRole;
-    userToken.value = userData.token;
-    DVS.value = userData.dvs;
-    currentUserId.value = userData.id.toString();
-  }
+  //   // Initiate the session
+  //   await initiateSession();
+  //   FullName.value = userData.fullName;
+  //   userName.value = userData.userName;
+  //   userEmail.value = userData.email;
+  //   userRole.value = userData.userRole;
+  //   userToken.value = userData.token;
+  //   DVS.value = userData.dvs;
+  //   currentUserId.value = userData.id.toString();
+  // }
 
   insertDeviceAndFCMInformation({FcmToken, deviceID}) async {
     final SharedPreferences? prefs = await _prefs;

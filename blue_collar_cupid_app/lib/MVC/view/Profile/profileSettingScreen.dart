@@ -33,7 +33,7 @@ class ProfileSettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-          value: themecontroller.systemUiOverlayStyleForwhite,
+          value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
           child: SafeArea(
             child: Scaffold(
               backgroundColor: themecontroller.backgoundcolor,

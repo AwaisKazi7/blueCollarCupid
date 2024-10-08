@@ -1,21 +1,8 @@
 import 'dart:developer';
-
-import 'package:blue_collar_cupid_app/MVC/model/VehicleModel.dart';
-import 'package:blue_collar_cupid_app/MVC/model/authModel.dart';
-import 'package:blue_collar_cupid_app/MVC/model/userModel.dart';
-import 'package:blue_collar_cupid_app/MVC/model/placesModel.dart';
-import 'package:blue_collar_cupid_app/MVC/model/vehiclePriceModel.dart';
-import 'package:blue_collar_cupid_app/MVC/view/loginScreen/SetNewPasswordScreen.dart';
-import 'package:blue_collar_cupid_app/MVC/view/loginScreen/SignInScreen.dart';
-import 'package:blue_collar_cupid_app/MVC/view/loginScreen/otpVerificationScreen.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:blue_collar_cupid_app/constant/constants.dart';
 import 'package:dio/src/form_data.dart' as getFormData;
 import 'package:dio/src/multipart_file.dart' as getFormDataFile;
-import 'package:blue_collar_cupid_app/constant/flutter_toast.dart';
-import 'package:blue_collar_cupid_app/constant/navigation.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import '../helper/data_storage.dart';
 
 class AppService {

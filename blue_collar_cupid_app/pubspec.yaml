@@ -47,7 +47,6 @@ dependencies:
   fluttertoast: ^8.2.2
   image_picker: ^1.0.4
   adaptive_dialog: ^1.9.0+2
-  flutter_native_splash: ^2.3.4
   lottie: ^2.7.0
   hexcolor: ^3.0.1
   carousel_slider: ^4.2.1
@@ -58,6 +57,10 @@ dependencies:
   firebase_core: ^2.31.0
   geolocator: ^11.0.0
   permission_handler: ^11.3.1
+  flutter_native_splash: ^2.3.4
+  intl_phone_number_input: ^0.7.4
+  flutter_card_swiper: ^7.0.1
+  
   
   
   

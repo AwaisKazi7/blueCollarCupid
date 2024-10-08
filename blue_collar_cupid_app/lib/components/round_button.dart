@@ -91,7 +91,7 @@ class _RoundButtonState extends State<RoundButton> {
                     : widget.backgroundColor,
             gradient:
                 widget.gradient ? themeController.backgroundGradient : null,
-            borderRadius: BorderRadius.circular(widget.borderRadius ?? 20),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
             border: Border.all(
                 color: widget.borderColor!, width: widget.borderWidth ?? 0.3),
             boxShadow: [

@@ -88,15 +88,31 @@ class ChatScreen extends StatelessWidget {
                       Expanded(
                         flex: 2,
                         child: CustomTextFieldWidget(
-                          height: 40.sp,
                           controller: messageController,
                           hintText: '',
+                          onsubmit: () {},
                           TextColor: Colors.black,
                           fieldColor: Color.fromARGB(255, 244, 244, 245),
                           inputType: TextInputType.multiline,
-                          label: 'write something..',
+                          label: 'Write your message here',
                           enabled: true,
-                          onsubmit: () {},
+                          suffixIcon: SizedBox(
+                              width: 70.sp,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.camera_alt,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 15.sp,
+                                  ),
+                                  Icon(
+                                    Icons.folder_copy,
+                                    color: Colors.black,
+                                  )
+                                ],
+                              )),
                         ),
                       ),
                       SizedBox(width: 5.sp),
@@ -147,9 +163,7 @@ class ChatBubble extends StatelessWidget {
           margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: message.sender == 'sender'
-                ? themecontroller.colorPrimaryBlue
-                : themecontroller.colorPrimary,
+            color: themecontroller.colorPrimaryBlue,
             borderRadius: message.sender == 'sender'
                 ? BorderRadius.only(
                     topLeft: Radius.circular(20.sp),

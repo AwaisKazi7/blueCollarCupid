@@ -1,4 +1,9 @@
+import 'package:blue_collar_cupid_app/MVC/view/loginScreen/SetNewPasswordScreen.dart';
+import 'package:blue_collar_cupid_app/components/BottomNav.dart';
+import 'package:blue_collar_cupid_app/components/logintextfield.dart';
 import 'package:blue_collar_cupid_app/components/spring_widget.dart';
+import 'package:blue_collar_cupid_app/constant/flutter_toast.dart';
+import 'package:blue_collar_cupid_app/constant/navigation.dart';
 import 'package:blue_collar_cupid_app/services/app_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,13 +15,13 @@ import '../../../components/round_button.dart';
 import '../../../helper/internet_controller.dart';
 
 class otpVerificationScreen extends StatelessWidget {
-  otpVerificationScreen(
-      {super.key,
-      required this.email,
-      required this.authid,
-      required this.type});
+  otpVerificationScreen({
+    super.key,
+    required this.email,
+    required this.type,
+  });
   final String email;
-  final int authid;
+
   final String type;
   final internetController = Get.put(InternetController());
 
@@ -29,136 +34,226 @@ class otpVerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeHelper>(builder: (themecontroller) {
-      return AnnotatedRegion(
-        value: themecontroller.systemUiOverlayStyleForwhite,
-        child: Scaffold(
-          backgroundColor: themecontroller.backgoundcolor,
-          // backgroundColor: Colors.black,
-          resizeToAvoidBottomInset: true,
-          appBar: AppBar(
-            backgroundColor: themecontroller.backgoundcolor,
-              centerTitle: true,
-              title: Text(
-                'OTP',
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
-              )),
-          body: Container(
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Center(
-                      child: Text(
-                        'OTP Verification',
-                        style: TextStyle(
-                            fontSize: 20.sp, fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.sp,
-                    ),
-                    Text(
-                      'Please enter OTP code sent to \nyour email',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 13.sp,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.normal),
-                    ),
-                    SizedBox(
-                      height: 20.sp,
-                    ),
-                  ],
+    return GetBuilder<ThemeHelper>(
+        initState: (state) {},
+        builder: (themecontroller) {
+          return AnnotatedRegion(
+            value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
+            child: Scaffold(
+              backgroundColor: themecontroller.backgoundcolor,
+              resizeToAvoidBottomInset: true,
+              body: Container(
+                decoration: BoxDecoration(
+                  color: themecontroller.backgoundcolor,
                 ),
-                Form(
-                  key: _formkey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      OtpfieldWidget(otpController: otpController),
-                      SizedBox(
-                        height: 15.sp,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                        flex: 1,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              "Didn't receive a code? ",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 10.sp,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.normal),
+                            SizedBox(
+                              width: 20.sp,
                             ),
-                            Obx(
-                              () => ResendOtploading.value
-                                  ? Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 5.sp),
-                                      child: SizedBox(
-                                          width: 15.sp,
-                                          child: CircularProgressIndicator(
-                                            color: themecontroller.colorPrimary,
-                                          )),
+                            Container(
+                              height: 150.sp,
+                              width: 150.sp,
+                              decoration: const BoxDecoration(
+
+                                  // color: Colors.amber,
+                                  image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: AssetImage(
+                                        "assets/images/logo.png",
+                                      ))),
+                            ),
+                          ],
+                        )),
+                    Expanded(
+                      flex: 3,
+                      child: Form(
+                        key: _formkey,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: themecontroller.colorPrimaryBlue,
+                            boxShadow: [
+                              BoxShadow(
+                                color: themecontroller.colorPrimaryBlue
+                                    .withOpacity(0.9), // Shadow color
+                                offset: Offset(0, 5),
+                                blurRadius: 30,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20.sp),
+                                topRight: Radius.circular(20.sp)),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.sp),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 20.sp,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'OTP Verification',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 30.sp,
+                                          fontWeight: FontWeight.bold),
                                     )
-                                  : SpringWidget(
-                                      onTap: () async {
-                                        ResendOtploading.value = true;
-                                        // await AppService.getInstance
-                                        //     .ResendOtp(context, email);
-                                        ResendOtploading.value = false;
-                                      },
-                                      child: Text(
-                                        'RESEND OTP',
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Please enter OTP we have sent you on  \nyour email',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15.sp,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 50.sp,
+                                ),
+                                OtpfieldWidget(otpController: otpController),
+                                SizedBox(height: 20.sp),
+                                SizedBox(
+                                  height: 15.sp,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Didn't receive a code? ",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontSize: 10.sp,
-                                            color: themecontroller.colorPrimary,
-                                            fontWeight: FontWeight.bold),
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.normal),
                                       ),
-                                    ),
+                                      Obx(
+                                        () => ResendOtploading.value
+                                            ? Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 5.sp),
+                                                child: SizedBox(
+                                                    width: 15.sp,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      color: themecontroller
+                                                          .colorPrimary,
+                                                    )),
+                                              )
+                                            : SpringWidget(
+                                                onTap: () async {
+                                                  ResendOtploading.value = true;
+                                                  // await AppService.getInstance
+                                                  //     .ResendOtp(context, email);
+                                                  ResendOtploading.value =
+                                                      false;
+                                                },
+                                                child: Text(
+                                                  'Resend OTP',
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      fontSize: 10.sp,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20.sp,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          bottomNavigationBar: Container(
-            height: 45.sp,
-            padding: EdgeInsets.symmetric(horizontal: Constants.screenPadding),
-            child: Obx(() => RoundButton(
-                  gradient: false,
-                  margin: 0,
-                  backgroundColor: themecontroller.colorPrimary,
-                  height: 60.sp,
-                  loading: apihitting.value,
-                  disabled: apihitting.value,
-                  title: 'verify OTP',
-                  iconColor: themecontroller.colorwhite,
-                  textColor: themecontroller.colorwhite,
-                  onTap: () async {
-                    await internetController.internetCheckerFun();
+              ),
+              bottomNavigationBar: Container(
+                color: themecontroller.colorPrimaryBlue,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Obx(() => RoundButton(
+                        gradient: false,
+                        margin: 0,
+                        backgroundColor: Colors.white,
+                        height: 45.sp,
+                        borderRadius: 10.sp,
+                        loading: apihitting.value,
+                        disabled: apihitting.value,
+                        title: 'Verify OTP',
+                        borderColor: Colors.white,
+                        borderWidth: 1.sp,
+                        iconColor: themecontroller.colorwhite,
+                        textColor: Colors.black.withOpacity(0.5),
+                        onTap: () async {
+                          await internetController.internetCheckerFun();
 
-                    if (_formkey.currentState!.validate()) {
-                      apihitting.value = true;
-                      if (type == 'forgetpassword') {
-                        // await AppService.getInstance
-                        //     .forgetPassword(context, otpController.text, email);
-                      } else {
-                        // await AppService.getInstance.checkOtp(
-                        //     context, otpController.text, authid, type);
-                      }
-                      apihitting.value = false;
-                    }
-                  },
-                )),
-          ),
-        ),
-      );
-    });
+                          if (_formkey.currentState!.validate()) {
+                            if (internetController.isInternetConnected.value ==
+                                true) {
+                              apihitting.value = true;
+                              // if (emailController.text ==
+                              //     'driver@gmail.com') {
+                              //   Navigation.getInstance
+                              //       .RightToLeft_PageNavigation(
+                              //           context, DriverHomeScreen());
+                              // } else {
+                              //   Navigation.getInstance
+                              //       .RightToLeft_PageNavigation(
+                              //           context, UserHomeScreen());
+                              // }
+                              // await AppService.getInstance.login(
+                              //     context,
+                              //     emailController.text,
+                              //     PasswordController.text);
+                              // Navigation.getInstance
+                              //     .RightToLeft_PageNavigation(
+                              //         context,
+                              //         otpVerificationScreen(
+                              //             email: emailController
+                              //                 .text,
+                              //             type:
+                              //                 'forgetpassword'));
+
+                              if (type == 'forgetpassword') {
+                                Navigation.getInstance
+                                    .RightToLeft_PageNavigation(
+                                        context, SetNewPasswordScreen());
+                              } else {
+                                Navigation.getInstance
+                                    .pagePushAndReplaceNavigation(
+                                        context, BottomNavBar());
+                              }
+                              apihitting.value = false;
+                            } else {
+                              FlutterToastDisplay.getInstance
+                                  .showToast("Please check your internet");
+                            }
+                          }
+                        },
+                      )),
+                ),
+              ),
+            ),
+          );
+        });
   }
 }

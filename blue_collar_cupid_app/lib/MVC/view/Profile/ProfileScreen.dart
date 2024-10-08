@@ -24,22 +24,10 @@ class ProfileScreen extends StatelessWidget {
         value: themecontroller.systemUiOverlayStyleForwhite,
         child: Scaffold(
           resizeToAvoidBottomInset: true,
-          backgroundColor: themecontroller.colorPrimary.withOpacity(0.4),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: Constants.screenPadding),
             child: Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/bg.gif'),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                    themecontroller.colorPrimary
-                        .withOpacity(0.4), // Adjust the opacity as needed
-                    BlendMode.srcATop,
-                  ),
-                ),
-              ),
               child: Column(
                 children: [
                   SizedBox(
@@ -110,16 +98,12 @@ class ProfileScreen extends StatelessWidget {
                         Profiletabs(
                           icons: Icons.list,
                           text: 'My Ordered Services',
-                          ontap: () {
-                           
-                          },
+                          ontap: () {},
                         ),
-                          Profiletabs(
+                        Profiletabs(
                           icons: Icons.list,
                           text: 'My Order list',
-                          ontap: () {
-                    
-                          },
+                          ontap: () {},
                         ),
                       ]),
                     ),
