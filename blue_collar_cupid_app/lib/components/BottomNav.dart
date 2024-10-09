@@ -44,7 +44,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 // drawer: AppDrawer(),
                 body: _buildPage(_currentIndex),
                 bottomNavigationBar: Container(
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
@@ -60,14 +60,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     ),
                     child: Material(
                       elevation: 0.0,
+                      color: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)),
                       child: BottomNavigationBar(
                         elevation: 0,
                         backgroundColor: Colors.transparent,
                         currentIndex: _currentIndex,
-                        selectedIconTheme:
-                            IconThemeData(color: themeController.colorPrimaryBlue),
+                        selectedIconTheme: IconThemeData(
+                            color: themeController.colorPrimaryBlue),
                         unselectedIconTheme: IconThemeData(
                           color: themeController.bottomiconcolor,
                         ),

@@ -69,7 +69,7 @@ class NearBycard extends StatelessWidget {
                     style: TextStyle(
                       overflow: TextOverflow.ellipsis,
                       color: Colors.white,
-                      fontSize: 9.sp,
+                      fontSize: 7.sp,
                     ),
                   ),
                 ),
@@ -86,7 +86,7 @@ class NearBycard extends StatelessWidget {
                   style: TextStyle(
                       overflow: TextOverflow.ellipsis,
                       color: Colors.white,
-                      fontSize: 15.sp,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.bold),
                 ),
               )),

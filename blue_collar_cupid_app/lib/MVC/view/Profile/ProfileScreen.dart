@@ -137,6 +137,7 @@ class ProfileScreen extends StatelessWidget {
                         maxLines: 5,
                         softWrap: true,
                         style: TextStyle(
+                          fontSize: 10.sp,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),

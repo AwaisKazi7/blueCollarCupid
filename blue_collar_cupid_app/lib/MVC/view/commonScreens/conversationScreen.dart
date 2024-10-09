@@ -30,128 +30,127 @@ class ConversationScreen extends StatelessWidget {
         body: Container(
           child: Column(
             children: [
-              Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(Constants.screenPadding),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(height: 50.sp,),
+              Padding(
+                padding: const EdgeInsets.all(Constants.screenPadding),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: themecontroller.colorPrimaryBlue,
-                              radius: 27.sp,
-                              child: CircleAvatar(
-                                child: ClipOval(
-                                  child: ImageWidget(
-                                      boxfit: BoxFit.fill,
-                                      width: 100.sp,
-                                      imageUrl:
-                                          'https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart'),
-                                ),
-                                radius: 25.sp,
-                              ),
+                        CircleAvatar(
+                          backgroundColor: themecontroller.colorPrimaryBlue,
+                          radius: 27.sp,
+                          child: CircleAvatar(
+                            child: ClipOval(
+                              child: ImageWidget(
+                                  boxfit: BoxFit.fill,
+                                  width: 100.sp,
+                                  imageUrl:
+                                      'https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart'),
                             ),
-                            Obx(
-                              () => Visibility(
-                                visible: showbox.value,
-                                child: AnimatedOpacity(
-                                  duration: Duration(milliseconds: 200),
-                                  opacity: showbox.value ? 1.0 : 0.0,
-                                  child: SizedBox(
-                                    width: 270.sp,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        SizedBox(
-                                          width: 190.sp,
-                                          child: CustomTextFieldWidget(
-                                            enabled: true,
-                                            label: 'search',
-                                            controller: SearchController,
-                                            hintText: "",
-                                            inputType: TextInputType.name,
-                                            icon: Icon(
-                                              Icons.search,
-                                              size: 20.sp,
-                                              color: themecontroller
-                                                  .colorPrimaryBlue,
-                                            ),
-                                            focusNode: _searchFocusNode,
-                                            onsubmit: () {},
-                                            validator: (value) {
-                                              if (value == null ||
-                                                  value.isEmpty) {
-                                                return 'Please enter your start point';
-                                              }
-
-                                              return null;
-                                            },
-                                          ),
+                            radius: 25.sp,
+                          ),
+                        ),
+                        Obx(
+                          () => Visibility(
+                            visible: showbox.value,
+                            child: AnimatedOpacity(
+                              duration: Duration(milliseconds: 200),
+                              opacity: showbox.value ? 1.0 : 0.0,
+                              child: SizedBox(
+                                width: 270.sp,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      width: 190.sp,
+                                      child: CustomTextFieldWidget(
+                                        enabled: true,
+                                        label: 'search',
+                                        controller: SearchController,
+                                        hintText: "",
+                                        inputType: TextInputType.name,
+                                        icon: Icon(
+                                          Icons.search,
+                                          size: 20.sp,
+                                          color: themecontroller
+                                              .colorPrimaryBlue,
                                         ),
-                                        SpringWidget(
-                                          onTap: () {
-                                            showbox.value = !showbox.value;
-                                          },
-                                          child: CircleAvatar(
-                                            radius: 20.sp,
-                                            backgroundColor:
-                                                Colors.grey.withOpacity(0.2),
-                                            child: SvgPicture.asset(
-                                              "assets/icons/cross.svg",
-                                              height: 17.sp,
-                                              width: 17.sp,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Obx(
-                              () => SpringWidget(
-                                onTap: () {
-                                  showbox.value = !showbox.value;
-                                },
-                                child: Visibility(
-                                  visible: !showbox.value,
-                                  child: AnimatedOpacity(
-                                    duration: Duration(milliseconds: 200),
-                                    opacity: !showbox.value ? 1.0 : 0.0,
-                                    child: CircleAvatar(
-                                      radius: 20.sp,
-                                      backgroundColor:
-                                          Colors.grey.withOpacity(0.2),
-                                      child: SvgPicture.asset(
-                                        "assets/icons/search.svg",
-                                        height: 17.sp,
-                                        width: 17.sp,
-                                        color: Colors.black,
+                                        focusNode: _searchFocusNode,
+                                        onsubmit: () {},
+                                        validator: (value) {
+                                          if (value == null ||
+                                              value.isEmpty) {
+                                            return 'Please enter your start point';
+                                          }
+              
+                                          return null;
+                                        },
                                       ),
                                     ),
+                                    SpringWidget(
+                                      onTap: () {
+                                        showbox.value = !showbox.value;
+                                      },
+                                      child: CircleAvatar(
+                                        radius: 20.sp,
+                                        backgroundColor:
+                                            Colors.grey.withOpacity(0.2),
+                                        child: SvgPicture.asset(
+                                          "assets/icons/cross.svg",
+                                          height: 17.sp,
+                                          width: 17.sp,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Obx(
+                          () => SpringWidget(
+                            onTap: () {
+                              showbox.value = !showbox.value;
+                            },
+                            child: Visibility(
+                              visible: !showbox.value,
+                              child: AnimatedOpacity(
+                                duration: Duration(milliseconds: 200),
+                                opacity: !showbox.value ? 1.0 : 0.0,
+                                child: CircleAvatar(
+                                  radius: 20.sp,
+                                  backgroundColor:
+                                      Colors.grey.withOpacity(0.2),
+                                  child: SvgPicture.asset(
+                                    "assets/icons/search.svg",
+                                    height: 17.sp,
+                                    width: 17.sp,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.sp,
-                        ),
-                        Text(
-                          'Chats',
-                          style:
-                              TextStyle(color: Colors.black, fontSize: 20.sp),
-                        ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
-                  )),
+                    SizedBox(
+                      height: 10.sp,
+                    ),
+                    Text(
+                      'Chats',
+                      style:
+                          TextStyle(color: Colors.black, fontSize: 20.sp),
+                    ),
+                  ],
+                ),
+              ),
               Expanded(
                 flex: 4,
                 child: ListView.builder(

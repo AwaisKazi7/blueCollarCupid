@@ -21,7 +21,10 @@ class Nearbyscreen extends StatelessWidget {
         child: Scaffold(
             appBar: AppBar(
               surfaceTintColor: Colors.white,
-              title: Text('Nearby'),
+              title: Text(
+                'Nearby',
+                style: TextStyle(fontSize: 13.sp),
+              ),
               centerTitle: true,
             ),
             body: SingleChildScrollView(

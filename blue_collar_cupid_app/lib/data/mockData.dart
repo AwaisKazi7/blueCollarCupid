@@ -120,6 +120,16 @@ class MockData {
       address: "1234 Elm Street, Springfield",
     ),
     MatchCard(
+      id: 12,
+      name: "Paul Daniel",
+      picture: [
+        "https://i.pinimg.com/originals/e3/00/bc/e300bca18a3c413710832ee510b2bf2c.png",
+        "https://lostnloveco.com/wp-content/uploads/2023/10/image-55.webp?ezimgfmt=rs:372x558/rscb1/ng:webp/ngcb1",
+        "https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/04/03165456/DPqDE1sWkAANTi1.jpg",
+      ],
+      address: "4321 Maple Road, Lakeview",
+    ),
+    MatchCard(
       id: 2,
       name: "Emily Johnson",
       picture: [
@@ -129,6 +139,26 @@ class MockData {
         "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
       ],
       address: "5678 Oak Avenue, Rivertown",
+    ),
+    MatchCard(
+      id: 13,
+      name: "Paul Alvarez",
+      picture: [
+        "https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/04/03165456/DPqDE1sWkAANTi1.jpg",
+        "https://i.pinimg.com/originals/e3/00/bc/e300bca18a3c413710832ee510b2bf2c.png",
+        "https://lostnloveco.com/wp-content/uploads/2023/10/image-55.webp?ezimgfmt=rs:372x558/rscb1/ng:webp/ngcb1",
+      ],
+      address: "4321 Maple Road, Lakeview",
+    ),
+    MatchCard(
+      id: 11,
+      name: "Daniel Paul",
+      picture: [
+        "https://lostnloveco.com/wp-content/uploads/2023/10/image-55.webp?ezimgfmt=rs:372x558/rscb1/ng:webp/ngcb1",
+        "https://i.pinimg.com/originals/e3/00/bc/e300bca18a3c413710832ee510b2bf2c.png",
+        "https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/04/03165456/DPqDE1sWkAANTi1.jpg",
+      ],
+      address: "4321 Maple Road, Lakeview",
     ),
     MatchCard(
       id: 3,
