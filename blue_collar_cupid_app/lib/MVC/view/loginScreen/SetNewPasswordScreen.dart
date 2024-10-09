@@ -89,169 +89,171 @@ class SetNewPasswordScreen extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20.sp),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 20.sp,
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 300.sp,
-                                      child: Text(
-                                        'Set New Password',
-                                        maxLines: 1,
-                                        style: TextStyle(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 20.sp,
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 300.sp,
+                                        child: Text(
+                                          'Set New Password',
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              overflow: TextOverflow.ellipsis,
+                                              color: Colors.white,
+                                              fontSize: 30.sp,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 300.sp,
+                                        child: Text(
+                                          'Set new password so you \ncan login',
+                                          maxLines: 1,
+                                          style: TextStyle(
                                             overflow: TextOverflow.ellipsis,
                                             color: Colors.white,
-                                            fontSize: 30.sp,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 300.sp,
-                                      child: Text(
-                                        'Set new password so you \ncan login',
-                                        maxLines: 1,
-                                        style: TextStyle(
-                                          overflow: TextOverflow.ellipsis,
-                                          color: Colors.white,
-                                          fontSize: 15.sp,
+                                            fontSize: 15.sp,
+                                          ),
                                         ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 50.sp,
-                                ),
-                                Obx(() => loginTextFieldWidget(
-                                      enabled: true,
-                                      label: '',
-                                      controller: PasswordController,
-                                      hintText: "Password",
-                                      inputType: TextInputType.visiblePassword,
-                                      obscureText: showPassword.value,
-                                      focusNode: _PasswordFocusNode,
-                                      onchange: (value) {
-                                        apihitting.value = false;
-                                      },
-                                      validator: (input) => input!.length < 3
-                                          ? 'Please enter at least 3 characters'
-                                          : input.length > 20
-                                              ? 'Please enter only 20 characters'
-                                              : null,
-                                      suffixIcon: GestureDetector(
-                                        behavior: HitTestBehavior.translucent,
-                                        onTap: () {
-                                          showPassword.value =
-                                              !showPassword.value;
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 50.sp,
+                                  ),
+                                  Obx(() => loginTextFieldWidget(
+                                        enabled: true,
+                                        label: '',
+                                        controller: PasswordController,
+                                        hintText: "Password",
+                                        inputType: TextInputType.visiblePassword,
+                                        obscureText: showPassword.value,
+                                        focusNode: _PasswordFocusNode,
+                                        onchange: (value) {
+                                          apihitting.value = false;
                                         },
-                                        child: Icon(
-                                          showPassword.value
-                                              ? Icons.visibility_outlined
-                                              : Icons.visibility_off_outlined,
-                                          color: Colors.white,
+                                        validator: (input) => input!.length < 3
+                                            ? 'Please enter at least 3 characters'
+                                            : input.length > 20
+                                                ? 'Please enter only 20 characters'
+                                                : null,
+                                        suffixIcon: GestureDetector(
+                                          behavior: HitTestBehavior.translucent,
+                                          onTap: () {
+                                            showPassword.value =
+                                                !showPassword.value;
+                                          },
+                                          child: Icon(
+                                            showPassword.value
+                                                ? Icons.visibility_outlined
+                                                : Icons.visibility_off_outlined,
+                                            color: Colors.white,
+                                          ),
                                         ),
-                                      ),
-                                    )),
-                                SizedBox(
-                                  height: 10.sp,
-                                ),
-                                Obx(() => loginTextFieldWidget(
-                                      enabled: true,
-                                      label: '',
-                                      controller: confirmController,
-                                      hintText: "Confirm Password",
-                                      inputType: TextInputType.visiblePassword,
-                                      obscureText: showConfirmPassword.value,
-                                      focusNode: _ConfirmPasswordFocusNode,
-                                      onchange: (value) {
-                                        apihitting.value = false;
-                                      },
-                                      validator: (input) => input!.length < 3
-                                          ? 'Please enter at least 3 characters'
-                                          : input.length > 20
-                                              ? 'Please enter only 20 characters'
-                                              : null,
-                                      suffixIcon: GestureDetector(
-                                        behavior: HitTestBehavior.translucent,
-                                        onTap: () {
-                                          showConfirmPassword.value =
-                                              !showConfirmPassword.value;
+                                      )),
+                                  SizedBox(
+                                    height: 10.sp,
+                                  ),
+                                  Obx(() => loginTextFieldWidget(
+                                        enabled: true,
+                                        label: '',
+                                        controller: confirmController,
+                                        hintText: "Confirm Password",
+                                        inputType: TextInputType.visiblePassword,
+                                        obscureText: showConfirmPassword.value,
+                                        focusNode: _ConfirmPasswordFocusNode,
+                                        onchange: (value) {
+                                          apihitting.value = false;
                                         },
-                                        child: Icon(
-                                          showConfirmPassword.value
-                                              ? Icons.visibility_outlined
-                                              : Icons.visibility_off_outlined,
-                                          color: Colors.white,
+                                        validator: (input) => input!.length < 3
+                                            ? 'Please enter at least 3 characters'
+                                            : input.length > 20
+                                                ? 'Please enter only 20 characters'
+                                                : null,
+                                        suffixIcon: GestureDetector(
+                                          behavior: HitTestBehavior.translucent,
+                                          onTap: () {
+                                            showConfirmPassword.value =
+                                                !showConfirmPassword.value;
+                                          },
+                                          child: Icon(
+                                            showConfirmPassword.value
+                                                ? Icons.visibility_outlined
+                                                : Icons.visibility_off_outlined,
+                                            color: Colors.white,
+                                          ),
                                         ),
-                                      ),
-                                    )),
-                                SizedBox(height: 30.sp),
-                                Obx(() => RoundButton(
-                                      gradient: false,
-                                      margin: 0,
-                                      backgroundColor: Colors.white,
-                                      height: 45.sp,
-                                      borderRadius: 10.sp,
-                                      loading: apihitting.value,
-                                      disabled: apihitting.value,
-                                      title: 'Set New Password',
-                                      borderColor: Colors.white,
-                                      borderWidth: 1.sp,
-                                      iconColor: themecontroller.colorwhite,
-                                      textColor: Colors.black.withOpacity(0.5),
-                                      onTap: () async {
-                                        await internetController
-                                            .internetCheckerFun();
-
-                                        if (_formkey.currentState!.validate()) {
-                                          if (confirmController.text ==
-                                              PasswordController.text) {
-                                            if (internetController
-                                                    .isInternetConnected
-                                                    .value ==
-                                                true) {
-                                              apihitting.value = true;
-
-                                              // if (emailController.text ==
-                                              //     'driver@gmail.com') {
-                                              //   Navigation.getInstance
-                                              //       .RightToLeft_PageNavigation(
-                                              //           context, DriverHomeScreen());
-                                              // } else {
-                                              //   Navigation.getInstance
-                                              //       .RightToLeft_PageNavigation(
-                                              //           context, UserHomeScreen());
-                                              // }
-                                              // await AppService.getInstance.login(
-                                              //     context,
-                                              //     emailController.text,
-                                              //     PasswordController.text);
-                                              Navigation.getInstance
-                                                  .pagePushAndReplaceNavigation(
-                                                      context, SignInScreen());
-
-                                              apihitting.value = false;
+                                      )),
+                                  SizedBox(height: 30.sp),
+                                  Obx(() => RoundButton(
+                                        gradient: false,
+                                        margin: 0,
+                                        backgroundColor: Colors.white,
+                                        height: 45.sp,
+                                        borderRadius: 10.sp,
+                                        loading: apihitting.value,
+                                        disabled: apihitting.value,
+                                        title: 'Set New Password',
+                                        borderColor: Colors.white,
+                                        borderWidth: 1.sp,
+                                        iconColor: themecontroller.colorwhite,
+                                        textColor: Colors.black.withOpacity(0.5),
+                                        onTap: () async {
+                                          await internetController
+                                              .internetCheckerFun();
+                              
+                                          if (_formkey.currentState!.validate()) {
+                                            if (confirmController.text ==
+                                                PasswordController.text) {
+                                              if (internetController
+                                                      .isInternetConnected
+                                                      .value ==
+                                                  true) {
+                                                apihitting.value = true;
+                              
+                                                // if (emailController.text ==
+                                                //     'driver@gmail.com') {
+                                                //   Navigation.getInstance
+                                                //       .RightToLeft_PageNavigation(
+                                                //           context, DriverHomeScreen());
+                                                // } else {
+                                                //   Navigation.getInstance
+                                                //       .RightToLeft_PageNavigation(
+                                                //           context, UserHomeScreen());
+                                                // }
+                                                // await AppService.getInstance.login(
+                                                //     context,
+                                                //     emailController.text,
+                                                //     PasswordController.text);
+                                                Navigation.getInstance
+                                                    .pagePushAndReplaceNavigation(
+                                                        context, SignInScreen());
+                              
+                                                apihitting.value = false;
+                                              } else {
+                                                FlutterToastDisplay.getInstance
+                                                    .showToast(
+                                                        "Please check your internet");
+                                              }
                                             } else {
                                               FlutterToastDisplay.getInstance
                                                   .showToast(
-                                                      "Please check your internet");
+                                                      "Password doesnot match");
                                             }
-                                          } else {
-                                            FlutterToastDisplay.getInstance
-                                                .showToast(
-                                                    "Password doesnot match");
                                           }
-                                        }
-                                      },
-                                    )),
-                              ],
+                                        },
+                                      )),
+                                ],
+                              ),
                             ),
                           ),
                         ),
