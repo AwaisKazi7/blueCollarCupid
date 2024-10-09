@@ -118,12 +118,19 @@ class _RoundButtonState extends State<RoundButton> {
               if (widget.icon != null && !widget.loading)
                 SizedBox(width: widget.gapBtWIconAndText ?? 10),
               if (!widget.loading)
-                Text(
-                  widget.title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: widget.gradient ? Colors.white : widget.textColor,
-                    fontSize: widget.titleSize ?? 12.sp,
+                SizedBox(
+                  width: 300.sp,
+                  child: Text(
+                    widget.title,
+                    softWrap: true,
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    style: TextStyle(
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.w600,
+                      color: widget.gradient ? Colors.white : widget.textColor,
+                      fontSize: widget.titleSize ?? 12.sp,
+                    ),
                   ),
                 ),
               if (widget.loading)

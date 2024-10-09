@@ -102,22 +102,32 @@ class ForgetPasswordScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      'Forgot password?',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 30.sp,
-                                          fontWeight: FontWeight.bold),
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        'Forgot password?',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            overflow: TextOverflow.ellipsis,
+                                            color: Colors.white,
+                                            fontSize: 30.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     )
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      'No worries, we’ll send you reset \ninstructions',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15.sp,
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        'No worries, we’ll send you reset \ninstructions',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          overflow: TextOverflow.ellipsis,
+                                          color: Colors.white,
+                                          fontSize: 15.sp,
+                                        ),
                                       ),
                                     )
                                   ],

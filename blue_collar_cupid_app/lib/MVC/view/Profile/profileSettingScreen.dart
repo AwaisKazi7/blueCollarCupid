@@ -123,8 +123,19 @@ class ProfileSettingScreen extends StatelessWidget {
                               color: Colors.black, fontWeight: FontWeight.w700),
                         ),
                         onTap: () async {
+                          Navigation.getInstance.RightToLeft_PageNavigation(
+                              context, ChangePsswordScreen());
+                        },
+                      ),
+                      ListTile(
+                        title: Text(
+                          "Delete Account",
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w700),
+                        ),
+                        onTap: () async {
                           Navigation.getInstance
-                              .RightToLeft_PageNavigation(context, ChangePsswordScreen());
+                              .RightToLeft_PageNavigation(context, SignInScreen());
                         },
                       ),
                       ListTile(

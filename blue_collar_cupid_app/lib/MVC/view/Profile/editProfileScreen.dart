@@ -259,6 +259,7 @@ class EditProfileScreen extends StatelessWidget {
                           },
                           enabled: true,
                         ),
+                        SizedBox(height: 10.sp,),
                         CustomTextFieldWidget(
                           controller: Biocontroller,
                           hintText: 'write something about your self',

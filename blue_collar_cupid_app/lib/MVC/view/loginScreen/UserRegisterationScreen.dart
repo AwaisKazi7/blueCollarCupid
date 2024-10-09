@@ -62,7 +62,7 @@ class UserRegisterationScreen extends StatelessWidget {
                               height: 150.sp,
                               width: 150.sp,
                               decoration: const BoxDecoration(
-              
+
                                   // color: Colors.amber,
                                   image: DecorationImage(
                                       fit: BoxFit.contain,
@@ -102,22 +102,32 @@ class UserRegisterationScreen extends StatelessWidget {
                                   ),
                                   Row(
                                     children: [
-                                      Text(
-                                        'Welcome Back!',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 30.sp,
-                                            fontWeight: FontWeight.bold),
+                                      SizedBox(
+                                        width: 300.sp,
+                                        child: Text(
+                                          'Welcome Back!',
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              overflow: TextOverflow.ellipsis,
+                                              color: Colors.white,
+                                              fontSize: 30.sp,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       )
                                     ],
                                   ),
                                   Row(
                                     children: [
-                                      Text(
-                                        'Create your account',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15.sp,
+                                      SizedBox(
+                                        width: 300.sp,
+                                        child: Text(
+                                          'Create your account',
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                            overflow: TextOverflow.ellipsis,
+                                            color: Colors.white,
+                                            fontSize: 15.sp,
+                                          ),
                                         ),
                                       )
                                     ],
@@ -161,7 +171,8 @@ class UserRegisterationScreen extends StatelessWidget {
                                       }
                                       const emailPattern =
                                           r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,4})$';
-                                      if (!RegExp(emailPattern).hasMatch(value)) {
+                                      if (!RegExp(emailPattern)
+                                          .hasMatch(value)) {
                                         return 'Please enter a valid email address';
                                       }
                                       return null;
@@ -175,7 +186,8 @@ class UserRegisterationScreen extends StatelessWidget {
                                         label: '',
                                         controller: PasswordController,
                                         hintText: "Password",
-                                        inputType: TextInputType.visiblePassword,
+                                        inputType:
+                                            TextInputType.visiblePassword,
                                         obscureText: showPassword.value,
                                         focusNode: _PasswordFocusNode,
                                         onchange: (value) {
@@ -208,7 +220,8 @@ class UserRegisterationScreen extends StatelessWidget {
                                         label: '',
                                         controller: ConfirmPasswordController,
                                         hintText: "Confirm Password",
-                                        inputType: TextInputType.visiblePassword,
+                                        inputType:
+                                            TextInputType.visiblePassword,
                                         obscureText: showConfirmPassword.value,
                                         focusNode: _ConfirmPasswordFocusNode,
                                         onchange: (value) {
@@ -246,13 +259,16 @@ class UserRegisterationScreen extends StatelessWidget {
                                         borderColor: Colors.white,
                                         borderWidth: 1.sp,
                                         iconColor: themecontroller.colorwhite,
-                                        textColor: Colors.black.withOpacity(0.5),
+                                        textColor:
+                                            Colors.black.withOpacity(0.5),
                                         onTap: () async {
                                           await internetController
                                               .internetCheckerFun();
-                                      
-                                          if (_formkey.currentState!.validate()) {
-                                            if (ConfirmPasswordController.text ==
+
+                                          if (_formkey.currentState!
+                                              .validate()) {
+                                            if (ConfirmPasswordController
+                                                    .text ==
                                                 PasswordController.text) {
                                               if (internetController
                                                       .isInternetConnected

@@ -101,22 +101,32 @@ class otpVerificationScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      'OTP Verification',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 30.sp,
-                                          fontWeight: FontWeight.bold),
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        'OTP Verification',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            overflow: TextOverflow.ellipsis,
+                                            color: Colors.white,
+                                            fontSize: 30.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     )
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      'Please enter OTP we have sent you on  \nyour email',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15.sp,
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        'Please enter OTP we have sent you on  \nyour email',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          overflow: TextOverflow.ellipsis,
+                                          color: Colors.white,
+                                          fontSize: 15.sp,
+                                        ),
                                       ),
                                     )
                                   ],
@@ -127,17 +137,22 @@ class otpVerificationScreen extends StatelessWidget {
                                 OtpfieldWidget(otpController: otpController),
                                 SizedBox(height: 20.sp),
                                 SizedBox(
-                                  height: 15.sp,
+                                  height: 25.sp,
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        "Didn't receive a code? ",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 10.sp,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.normal),
+                                      SizedBox(
+                                        width: 200.sp,
+                                        child: Text(
+                                          "Didn't receive a code? ",
+                                          textAlign: TextAlign.center,
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              overflow: TextOverflow.ellipsis,
+                                              fontSize: 10.sp,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.normal),
+                                        ),
                                       ),
                                       Obx(
                                         () => ResendOtploading.value
@@ -160,14 +175,20 @@ class otpVerificationScreen extends StatelessWidget {
                                                   ResendOtploading.value =
                                                       false;
                                                 },
-                                                child: Text(
-                                                  'Resend OTP',
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      fontSize: 10.sp,
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                child: SizedBox(
+                                                  width: 50.sp,
+                                                  child: Text(
+                                                    'Resend OTP',
+                                                    textAlign: TextAlign.center,
+                                                    maxLines: 1,
+                                                    style: TextStyle(
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        fontSize: 10.sp,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
                                                 ),
                                               ),
                                       ),

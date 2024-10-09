@@ -110,27 +110,33 @@ class _loginwithPhoneScreenState extends State<loginwithPhoneScreen> {
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      'Enter mobile Number',
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          overflow: TextOverflow.ellipsis,
-                                          color: Colors.white,
-                                          fontSize: 25.sp,
-                                          fontWeight: FontWeight.bold),
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        'Enter mobile Number',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            overflow: TextOverflow.ellipsis,
+                                            color: Colors.white,
+                                            fontSize: 25.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     )
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      "Add your phone number. We'll send you a verification code\nso we know you're real.",
-                                      softWrap: true,
-                                      maxLines: 3,
-                                      style: TextStyle(
-                                        overflow: TextOverflow.ellipsis,
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        "Add your phone number. We'll send you a verification code\nso we know you're real.",
+                                        softWrap: true,
+                                        maxLines: 3,
+                                        style: TextStyle(
+                                          overflow: TextOverflow.ellipsis,
+                                          color: Colors.white,
+                                          fontSize: 10.sp,
+                                        ),
                                       ),
                                     )
                                   ],
@@ -159,7 +165,6 @@ class _loginwithPhoneScreenState extends State<loginwithPhoneScreen> {
                                     labelStyle: TextStyle(
                                       color: Colors.white,
                                     ),
-
                                     border: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                       color: Colors.white,
@@ -198,38 +203,37 @@ class _loginwithPhoneScreenState extends State<loginwithPhoneScreen> {
                                             .internetCheckerFun();
 
                                         // if (_formkey.currentState!.validate()) {
-                                          if (internetController
-                                                  .isInternetConnected.value ==
-                                              true) {
-                                            apihitting.value = true;
-                                            // if (emailController.text ==
-                                            //     'driver@gmail.com') {
-                                            //   Navigation.getInstance
-                                            //       .RightToLeft_PageNavigation(
-                                            //           context, DriverHomeScreen());
-                                            // } else {
-                                            //   Navigation.getInstance
-                                            //       .RightToLeft_PageNavigation(
-                                            //           context, UserHomeScreen());
-                                            // }
-                                            // await AppService.getInstance.login(
-                                            //     context,
-                                            //     emailController.text,
-                                            //     PasswordController.text);
-                                            Navigation.getInstance
-                                                .RightToLeft_PageNavigation(
-                                                    context,
-                                                    otpVerificationScreen(
-                                                        email: emailController
-                                                            .text,
-                                                        type:
-                                                            'phone'));
-                                            apihitting.value = false;
-                                          } else {
-                                            FlutterToastDisplay.getInstance
-                                                .showToast(
-                                                    "Please check your internet");
-                                          }
+                                        if (internetController
+                                                .isInternetConnected.value ==
+                                            true) {
+                                          apihitting.value = true;
+                                          // if (emailController.text ==
+                                          //     'driver@gmail.com') {
+                                          //   Navigation.getInstance
+                                          //       .RightToLeft_PageNavigation(
+                                          //           context, DriverHomeScreen());
+                                          // } else {
+                                          //   Navigation.getInstance
+                                          //       .RightToLeft_PageNavigation(
+                                          //           context, UserHomeScreen());
+                                          // }
+                                          // await AppService.getInstance.login(
+                                          //     context,
+                                          //     emailController.text,
+                                          //     PasswordController.text);
+                                          Navigation.getInstance
+                                              .RightToLeft_PageNavigation(
+                                                  context,
+                                                  otpVerificationScreen(
+                                                      email:
+                                                          emailController.text,
+                                                      type: 'phone'));
+                                          apihitting.value = false;
+                                        } else {
+                                          FlutterToastDisplay.getInstance
+                                              .showToast(
+                                                  "Please check your internet");
+                                        }
                                         // }
                                       },
                                     )),

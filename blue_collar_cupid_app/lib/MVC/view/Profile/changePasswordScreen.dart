@@ -79,6 +79,7 @@ class ChangePsswordScreen extends StatelessWidget {
                         },
                         enabled: true,
                       ),
+                      SizedBox(height: 10.sp,),
                       CustomTextFieldWidget(
                         controller: NewPasswordcontroller,
                         hintText: '',
@@ -94,6 +95,7 @@ class ChangePsswordScreen extends StatelessWidget {
                         },
                         enabled: true,
                       ),
+                      SizedBox(height: 10.sp,),
                       CustomTextFieldWidget(
                         controller: ConfirmPasswordcontroller,
                         hintText: '',
@@ -102,45 +104,41 @@ class ChangePsswordScreen extends StatelessWidget {
                         TextColor: Colors.black,
                         focusNode: _ConfirmPasswordFocusNode,
                         label: 'Enter Password to Confirm',
-                        enabled: false,
-                      ),
-                      Expanded(
-                        child: SizedBox(
-                          height: 20.sp,
-                        ),
-                      ),
-                      Obx(
-                        () => RoundButton(
-                            height: 45.sp,
-                            title: 'Change Password',
-                            loading: apihitting.value,
-                            disabled: apihitting.value,
-                            margin: 0,
-                            textColor: Colors.white,
-                            backgroundColor:
-                                themecontroller.colorPrimaryBlue,
-                            borderColor:
-                                themecontroller.colorPrimaryBlue,
-                            onTap: () async {
-                              if (_formkey.currentState!.validate()) {
-                                if (NewPasswordcontroller.text ==
-                                    ConfirmPasswordcontroller.text) {
-                                  apihitting.value = true;
-                                  // await AppService.getInstance.updatePassword(
-                                  //     context,
-                                  //     NewPasswordcontroller.text,
-                                  //     oldPasswordcontroller.text);
-                                  apihitting.value = false;
-                                } else {
-                                  FlutterToastDisplay.getInstance
-                                      .showToast("Password does'nt match");
-                                }
-                              }
-                              apihitting.value = false;
-                            }),
+                        enabled: true,
                       ),
                     ],
                   ),
+                ),
+              ),
+              bottomNavigationBar: Padding(
+                padding: const EdgeInsets.all(Constants.screenPadding),
+                child: Obx(
+                  () => RoundButton(
+                      height: 45.sp,
+                      title: 'Change Password',
+                      loading: apihitting.value,
+                      disabled: apihitting.value,
+                      margin: 0,
+                      textColor: Colors.white,
+                      backgroundColor: themecontroller.colorPrimaryBlue,
+                      borderColor: themecontroller.colorPrimaryBlue,
+                      onTap: () async {
+                        if (_formkey.currentState!.validate()) {
+                          if (NewPasswordcontroller.text ==
+                              ConfirmPasswordcontroller.text) {
+                            apihitting.value = true;
+                            // await AppService.getInstance.updatePassword(
+                            //     context,
+                            //     NewPasswordcontroller.text,
+                            //     oldPasswordcontroller.text);
+                            apihitting.value = false;
+                          } else {
+                            FlutterToastDisplay.getInstance
+                                .showToast("Password does'nt match");
+                          }
+                        }
+                        apihitting.value = false;
+                      }),
                 ),
               ),
             ),

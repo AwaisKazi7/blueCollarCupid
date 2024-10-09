@@ -49,7 +49,7 @@ class NearBycard extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20.sp))),
           ),
           Positioned(
-              bottom: 45.sp,
+              bottom: 60.sp,
               left: 10.sp,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 1.sp, vertical: 1.sp),
@@ -75,14 +75,14 @@ class NearBycard extends StatelessWidget {
                 ),
               )),
           Positioned(
-              bottom: 20.sp,
+              bottom: 30.sp,
               left: 10.sp,
               child: SizedBox(
                 width: 150.sp,
                 child: Text(
                   data.name,
                   softWrap: true,
-                  maxLines: 2,
+                  maxLines: 1,
                   style: TextStyle(
                       overflow: TextOverflow.ellipsis,
                       color: Colors.white,
@@ -93,11 +93,17 @@ class NearBycard extends StatelessWidget {
           Positioned(
               bottom: 10.sp,
               left: 10.sp,
-              child: Text(
-                data.address,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 9.sp,
+              child: SizedBox(
+                width: 150.sp,
+                child: Text(
+                  data.address,
+                  softWrap: true,
+                  maxLines: 1,
+                  style: TextStyle(
+                    overflow: TextOverflow.ellipsis,
+                    color: Colors.white,
+                    fontSize: 9.sp,
+                  ),
                 ),
               )),
         ],

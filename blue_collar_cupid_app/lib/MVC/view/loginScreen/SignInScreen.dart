@@ -102,24 +102,34 @@ class SignInScreen extends StatelessWidget {
                                   ),
                                   Row(
                                     children: [
-                                      Text(
-                                        'Welcome Back!',
-                                        softWrap: true,
-                                        style: TextStyle(
-                                            overflow: TextOverflow.ellipsis,
-                                            color: Colors.white,
-                                            fontSize: 30.sp,
-                                            fontWeight: FontWeight.bold),
+                                      SizedBox(
+                                        width: 300.sp,
+                                        child: Text(
+                                          'Welcome Back!',
+                                          softWrap: true,
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              overflow: TextOverflow.ellipsis,
+                                              color: Colors.white,
+                                              fontSize: 30.sp,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       )
                                     ],
                                   ),
                                   Row(
                                     children: [
-                                      Text(
-                                        'Sign In to your account',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15.sp,
+                                      SizedBox(
+                                        width: 300.sp,
+                                        child: Text(
+                                          'Sign In to your account',
+                                          softWrap: true,
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                            overflow: TextOverflow.ellipsis,
+                                            color: Colors.white,
+                                            fontSize: 15.sp,
+                                          ),
                                         ),
                                       )
                                     ],
@@ -143,7 +153,8 @@ class SignInScreen extends StatelessWidget {
                                       }
                                       const emailPattern =
                                           r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,4})$';
-                                      if (!RegExp(emailPattern).hasMatch(value)) {
+                                      if (!RegExp(emailPattern)
+                                          .hasMatch(value)) {
                                         return 'Please enter a valid email address';
                                       }
                                       return null;
@@ -157,7 +168,8 @@ class SignInScreen extends StatelessWidget {
                                         label: '',
                                         controller: PasswordController,
                                         hintText: "Password",
-                                        inputType: TextInputType.visiblePassword,
+                                        inputType:
+                                            TextInputType.visiblePassword,
                                         obscureText: showPassword.value,
                                         focusNode: _PasswordFocusNode,
                                         onchange: (value) {
@@ -189,7 +201,8 @@ class SignInScreen extends StatelessWidget {
                                       SpringWidget(
                                         onTap: () {
                                           Navigation.getInstance
-                                              .RightToLeft_PageNavigation(context,
+                                              .RightToLeft_PageNavigation(
+                                                  context,
                                                   ForgetPasswordScreen());
                                         },
                                         child: Text(
@@ -214,14 +227,17 @@ class SignInScreen extends StatelessWidget {
                                         borderColor: Colors.white,
                                         borderWidth: 1.sp,
                                         iconColor: themecontroller.colorwhite,
-                                        textColor: Colors.black.withOpacity(0.5),
+                                        textColor:
+                                            Colors.black.withOpacity(0.5),
                                         onTap: () async {
                                           await internetController
                                               .internetCheckerFun();
-                              
-                                          if (_formkey.currentState!.validate()) {
+
+                                          if (_formkey.currentState!
+                                              .validate()) {
                                             if (internetController
-                                                    .isInternetConnected.value ==
+                                                    .isInternetConnected
+                                                    .value ==
                                                 true) {
                                               apihitting.value = true;
                                               // if (emailController.text ==
@@ -300,7 +316,7 @@ class SignInScreen extends StatelessWidget {
                                         onTap: () async {
                                           await internetController
                                               .internetCheckerFun();
-                              
+
                                           if (internetController
                                                   .isInternetConnected.value ==
                                               true) {
@@ -347,7 +363,7 @@ class SignInScreen extends StatelessWidget {
                                       onTap: () async {
                                         await internetController
                                             .internetCheckerFun();
-                              
+
                                         if (internetController
                                                 .isInternetConnected.value ==
                                             true) {
@@ -393,7 +409,7 @@ class SignInScreen extends StatelessWidget {
                                       onTap: () async {
                                         await internetController
                                             .internetCheckerFun();
-                              
+
                                         if (internetController
                                                 .isInternetConnected.value ==
                                             true) {
@@ -413,7 +429,8 @@ class SignInScreen extends StatelessWidget {
                                           //     emailController.text,
                                           //     PasswordController.text);
                                           Navigation.getInstance
-                                              .RightToLeft_PageNavigation(context,
+                                              .RightToLeft_PageNavigation(
+                                                  context,
                                                   loginwithPhoneScreen());
                                           apihitting.value = false;
                                         } else {

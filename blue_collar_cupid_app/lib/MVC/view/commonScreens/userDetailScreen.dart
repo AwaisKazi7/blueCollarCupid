@@ -131,22 +131,34 @@ class UserDetailScreen extends StatelessWidget {
                       SizedBox(
                         height: 20.sp,
                       ),
-                      Text(
-                        data.name,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30.sp,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 300.sp,
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          data.name,
+                          maxLines: 1,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              color: Colors.black,
+                              fontSize: 30.sp,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       SizedBox(
                         height: 10.sp,
                       ),
-                      Text(
-                        data.address,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: 300.sp,
+                        child: Text(
+                          data.address,
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              color: Colors.black,
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       SizedBox(
                         height: 20.sp,

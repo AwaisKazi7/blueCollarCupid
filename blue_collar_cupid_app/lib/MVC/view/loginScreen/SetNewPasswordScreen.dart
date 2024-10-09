@@ -96,22 +96,32 @@ class SetNewPasswordScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      'Set New Password',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 30.sp,
-                                          fontWeight: FontWeight.bold),
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        'Set New Password',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                            overflow: TextOverflow.ellipsis,
+                                            color: Colors.white,
+                                            fontSize: 30.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     )
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                      'Set new password so you \ncan login',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15.sp,
+                                    SizedBox(
+                                      width: 300.sp,
+                                      child: Text(
+                                        'Set new password so you \ncan login',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          overflow: TextOverflow.ellipsis,
+                                          color: Colors.white,
+                                          fontSize: 15.sp,
+                                        ),
                                       ),
                                     )
                                   ],
