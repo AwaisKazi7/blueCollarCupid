@@ -38,9 +38,9 @@ class ThemeHelper extends GetxController {
 
   final notificationbottomsheetGradient = const LinearGradient(
     colors: [
-      Color.fromRGBO(71, 33, 141, 1),
-      Color.fromRGBO(68, 52, 142, 1),
-      Color.fromRGBO(66, 64, 141, 1),
+      Color.fromARGB(255, 48, 128, 240),
+      Color.fromARGB(255, 80, 151, 250),
+      Color.fromARGB(255, 91, 154, 242),
       Color.fromRGBO(63, 77, 141, 1),
       Color.fromRGBO(60, 94, 141, 1),
       Color.fromRGBO(66, 102, 153, 1),
@@ -83,8 +83,8 @@ class ThemeHelper extends GetxController {
 
   final screenGradient = const LinearGradient(
     colors: [
-      Color.fromARGB(255, 5, 46, 230),
-      Color.fromARGB(255, 74, 27, 201),
+      Color.fromARGB(255, 88, 156, 253),
+      Color.fromARGB(255, 88, 156, 253),
       Color.fromARGB(255, 137, 157, 247),
       Color.fromARGB(255, 253, 240, 231),
       Color.fromARGB(255, 255, 241, 241),
@@ -178,9 +178,9 @@ class ThemeHelper extends GetxController {
             isDarkTheme.value ? Brightness.dark : Brightness.light,
       );
 
-  SystemUiOverlayStyle get systemUiOverlayStyleSplash => SystemUiOverlayStyle(
-        statusBarColor: const Color.fromARGB(255, 248, 94, 86),
-        systemNavigationBarColor: const Color.fromARGB(255, 248, 105, 110),
+  SystemUiOverlayStyle get systemUiOverlayStyleforwhiteandtarnsparent => SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.white,
         statusBarBrightness:
             isDarkTheme.value ? Brightness.dark : Brightness.light,
         statusBarIconBrightness:

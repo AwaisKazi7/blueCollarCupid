@@ -53,7 +53,7 @@ class Homescreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Hello,Jennifer'),
+                            Text('Hello,Michael'),
                             Text(
                               'Let’s find a match',
                               style: TextStyle(

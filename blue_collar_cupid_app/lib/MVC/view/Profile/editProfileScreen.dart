@@ -1,21 +1,17 @@
 import 'dart:io';
-
-import 'package:blue_collar_cupid_app/MVC/view/Profile/uploadprofileImageScreen.dart';
-import 'package:blue_collar_cupid_app/components/custom_appbar.dart';
 import 'package:blue_collar_cupid_app/components/custom_textfiled.dart';
+import 'package:blue_collar_cupid_app/components/image_widget.dart';
 import 'package:blue_collar_cupid_app/components/round_button.dart';
-import 'package:blue_collar_cupid_app/components/spring_widget.dart';
 import 'package:blue_collar_cupid_app/constant/constants.dart';
-import 'package:blue_collar_cupid_app/constant/navigation.dart';
 import 'package:blue_collar_cupid_app/constant/theme.dart';
 import 'package:blue_collar_cupid_app/helper/data_storage.dart';
 import 'package:blue_collar_cupid_app/helper/getx_helper.dart';
 import 'package:blue_collar_cupid_app/helper/internet_controller.dart';
-import 'package:blue_collar_cupid_app/services/app_service.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 class EditProfileScreen extends StatelessWidget {
   EditProfileScreen({super.key});
@@ -35,16 +31,18 @@ class EditProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-          value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
+          value: themecontroller.systemUiOverlayStyleForwhite,
           child: SafeArea(
             child: Scaffold(
               resizeToAvoidBottomInset: true,
+              backgroundColor: Colors.white,
               appBar: AppBar(
+                  backgroundColor: Colors.white,
                   surfaceTintColor: Colors.white,
                   title: Text(
                     'Edit Profile',
                     style: TextStyle(
-                        color: themecontroller.colorPrimary,
+                        color: themecontroller.colorPrimaryBlue,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.sp),
@@ -59,34 +57,187 @@ class EditProfileScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Obx(
-                          () => SpringWidget(
-                            onTap: () {
-                              Navigation.getInstance.RightToLeft_PageNavigation(
-                                  context, uploadprofileImageScreen());
-                            },
-                            child: Stack(children: [
-                              getcontroller.imagePath.value.isNotEmpty
-                                  ? CircleAvatar(
-                                      radius: 70.sp,
-                                      backgroundImage: FileImage(
-                                          File(getcontroller.imagePath.value)),
-                                    )
-                                  : CircleAvatar(
-                                      radius: 70.sp,
-                                      backgroundImage: AssetImage(getcontroller
-                                          .defaultImagePath
-                                          .toString()),
-                                    ),
-                              Positioned(
-                                bottom: 0,
-                                right: 10.sp,
-                                child: CircleAvatar(
-                                  child: Icon(Icons.edit),
-                                ),
-                              ),
-                            ]),
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                getcontroller.getImage();
+                              },
+                              child: Obx(() => getcontroller.imagePath.value !=
+                                      ''
+                                  ? getcontroller.imagePath.value
+                                          .startsWith('http')
+                                      ? Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                            child: ImageWidget(
+                                                imageUrl: getcontroller
+                                                    .imagePath.value),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                          ),
+                                        )
+                                      : Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.sp),
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: FileImage(
+                                                  File(getcontroller
+                                                      .imagePath.value),
+                                                ),
+                                              )),
+                                        )
+                                  : DottedBorder(
+                                      borderType: BorderType.RRect,
+                                      radius: Radius.circular(21.sp),
+                                      strokeWidth: 2.sp,
+                                      color: themecontroller.colorPrimaryBlue,
+                                      dashPattern: [10.sp, 6.sp],
+                                      child: Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                          ),
+                                          child: Icon(
+                                            Icons.add,
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            size: 30.sp,
+                                          )),
+                                    )),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                getcontroller.getImage();
+                              },
+                              child: Obx(() => getcontroller.imagePath.value !=
+                                      ''
+                                  ? getcontroller.imagePath.value
+                                          .startsWith('http')
+                                      ? Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                            child: ImageWidget(
+                                                imageUrl: getcontroller
+                                                    .imagePath.value),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                          ),
+                                        )
+                                      : Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.sp),
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: FileImage(
+                                                  File(getcontroller
+                                                      .imagePath.value),
+                                                ),
+                                              )),
+                                        )
+                                  : DottedBorder(
+                                      borderType: BorderType.RRect,
+                                      radius: Radius.circular(21.sp),
+                                      strokeWidth: 2.sp,
+                                      color: themecontroller.colorPrimaryBlue,
+                                      dashPattern: [10.sp, 6.sp],
+                                      child: Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                          ),
+                                          child: Icon(
+                                            Icons.add,
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            size: 30.sp,
+                                          )),
+                                    )),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                getcontroller.getImage();
+                              },
+                              child: Obx(() => getcontroller.imagePath.value !=
+                                      ''
+                                  ? getcontroller.imagePath.value
+                                          .startsWith('http')
+                                      ? Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                            child: ImageWidget(
+                                                imageUrl: getcontroller
+                                                    .imagePath.value),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                          ),
+                                        )
+                                      : Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.sp),
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: FileImage(
+                                                  File(getcontroller
+                                                      .imagePath.value),
+                                                ),
+                                              )),
+                                        )
+                                  : DottedBorder(
+                                      borderType: BorderType.RRect,
+                                      radius: Radius.circular(21.sp),
+                                      strokeWidth: 2.sp,
+                                      color: themecontroller.colorPrimaryBlue,
+                                      dashPattern: [10.sp, 6.sp],
+                                      child: Container(
+                                          height: 150.sp,
+                                          width: 100.sp,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20.sp),
+                                          ),
+                                          child: Icon(
+                                            Icons.add,
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            size: 30.sp,
+                                          )),
+                                    )),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 20.sp,
@@ -109,187 +260,23 @@ class EditProfileScreen extends StatelessWidget {
                           enabled: true,
                         ),
                         CustomTextFieldWidget(
-                          controller: usernameController,
-                          hintText:
-                              // DataStroge.userPhone.value == ''
-                              //     ?
-                              'User Name',
-                          // : DataStroge.userPhone.value,
-                          onsubmit: () {},
+                          controller: Biocontroller,
+                          hintText: 'write something about your self',
+                          maxLines: 5,
+                          height: 100.sp,
                           inputType: TextInputType.name,
+                          onsubmit: () {},
                           TextColor: Colors.black,
-                          label: DataStroge.userName.value == ''
-                              ? 'User Name'
-                              : DataStroge.userName.value,
+                          label: 'Bio',
+                          
                           validator: (value) {
                             if (value == '' &&
-                                DataStroge.userName.value == '') {
-                              return 'Please Enter The Updated User Name';
+                                DataStroge.FullName.value == '') {
+                              return 'Please Enter The Updated Name';
                             }
                           },
                           enabled: true,
                         ),
-                        // CustomTextFieldWidget(
-                        //   controller: Phonecontroller,
-                        //   hintText: DataStroge.userEmail.value == ''
-                        //       ? 'Email Address'
-                        //       : DataStroge.userEmail.value,
-                        //   inputType: TextInputType.name,
-                        //   TextColor: Colors.black,
-                        //   label: '',
-                        //   validator: (value) {
-                        //     if (value == '' &&
-                        //         DataStroge.userPhone.value == '') {
-                        //       return 'Please Enter The Updated Email Address';
-                        //     }
-                        //   },
-                        //   enabled: true,
-                        //
-                        // ),
-                        // Row(
-                        //   children: [
-                        //     Expanded(
-                        //       flex: 1,
-                        //       child: CustomTextFieldWidget(
-                        //         controller: Phonecontroller,
-                        //         hintText: 'city',
-                        //         inputType: TextInputType.name,
-                        //         TextColor: Colors.black,
-                        //         label: '',
-                        //         validator: (value) {
-                        //           if (value == '' &&
-                        //               DataStroge.userPhone.value == '') {
-                        //             return 'Please Enter The Updated city';
-                        //           }
-                        //         },
-                        //         enabled: true,
-                        //
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       width: 10.sp,
-                        //     ),
-                        //     Expanded(
-                        //       flex: 1,
-                        //       child: CustomTextFieldWidget(
-                        //         controller: Phonecontroller,
-                        //         hintText: 'state',
-                        //         inputType: TextInputType.name,
-                        //         TextColor: Colors.black,
-                        //         label: '',
-                        //         validator: (value) {
-                        //           if (value == '' &&
-                        //               DataStroge.userPhone.value == '') {
-                        //             return 'Please Enter The Updated state';
-                        //           }
-                        //         },
-                        //         enabled: true,
-                        //
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
-                        // Row(
-                        //   children: [
-                        //     Expanded(
-                        //       flex: 1,
-                        //       child: CustomTextFieldWidget(
-                        //         controller: Phonecontroller,
-                        //         hintText: 'Vehicle Make',
-                        //         inputType: TextInputType.name,
-                        //         TextColor: Colors.black,
-                        //         label: '',
-                        //         validator: (value) {
-                        //           if (value == '' &&
-                        //               DataStroge.userPhone.value == '') {
-                        //             return 'Please Enter The Updated Vehicle Make';
-                        //           }
-                        //         },
-                        //         enabled: true,
-                        //
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       width: 10.sp,
-                        //     ),
-                        //     Expanded(
-                        //       flex: 1,
-                        //       child: CustomTextFieldWidget(
-                        //         controller: Phonecontroller,
-                        //         hintText: 'Vehicle Model',
-                        //         inputType: TextInputType.name,
-                        //         TextColor: Colors.black,
-                        //         label: '',
-                        //         validator: (value) {
-                        //           if (value == '' &&
-                        //               DataStroge.userPhone.value == '') {
-                        //             return 'Please Enter The Updated state';
-                        //           }
-                        //         },
-                        //         enabled: true,
-                        //
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
-                        // Row(
-                        //   children: [
-                        //     Expanded(
-                        //       flex: 1,
-                        //       child: CustomTextFieldWidget(
-                        //         controller: Phonecontroller,
-                        //         hintText: 'Vehicle No',
-                        //         inputType: TextInputType.name,
-                        //         TextColor: Colors.black,
-                        //         label: '',
-                        //         validator: (value) {
-                        //           if (value == '' &&
-                        //               DataStroge.userPhone.value == '') {
-                        //             return 'Please Enter The Updated Vehicle No';
-                        //           }
-                        //         },
-                        //         enabled: true,
-                        //
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       width: 10.sp,
-                        //     ),
-                        //     Expanded(
-                        //       flex: 1,
-                        //       child: CustomTextFieldWidget(
-                        //         controller: Phonecontroller,
-                        //         hintText: 'Vehicle Color',
-                        //         inputType: TextInputType.name,
-                        //         TextColor: Colors.black,
-                        //         label: '',
-                        //         validator: (value) {
-                        //           if (value == '' &&
-                        //               DataStroge.userPhone.value == '') {
-                        //             return 'Please Enter The Updated Vehicle Color';
-                        //           }
-                        //         },
-                        //         enabled: true,
-                        //
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
-                        // CustomTextFieldWidget(
-                        //   controller: Phonecontroller,
-                        //   hintText: 'Vehicle Registration No & Expiry Date',
-                        //   inputType: TextInputType.name,
-                        //   TextColor: Colors.black,
-                        //   label: '',
-                        //   validator: (value) {
-                        //     if (value == '' &&
-                        //         DataStroge.userPhone.value == '') {
-                        //       return 'Please Enter The Updated Vehicle Registration No & Expiry Date';
-                        //     }
-                        //   },
-                        //   enabled: true,
-                        //
-                        // ),
                         SizedBox(
                           height: 20.sp,
                         ),
@@ -309,9 +296,9 @@ class EditProfileScreen extends StatelessWidget {
                       margin: 0,
                       textColor: Colors.white,
                       backgroundColor:
-                          themecontroller.colorPrimary.withOpacity(0.8),
+                          themecontroller.colorPrimaryBlue,
                       borderColor:
-                          themecontroller.colorPrimary.withOpacity(0.8),
+                          themecontroller.colorPrimaryBlue,
                       onTap: () async {
                         if (_formkey.currentState!.validate()) {
                           apihitting.value = true;

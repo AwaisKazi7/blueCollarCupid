@@ -26,8 +26,24 @@ class tindercard extends StatelessWidget {
             alignment: Alignment.center,
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(20.sp)),
-              child: ImageWidget(height: 620.sp, imageUrl: data.picture),
+              child: ImageWidget(
+                  height: 620.sp,
+                  width: double.infinity,
+                  imageUrl: data.picture[0]),
             ),
+          ),
+          Container(
+            height: 550.sp,
+            decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Color.fromARGB(198, 0, 0, 0),
+                  ],
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(20.sp))),
           ),
           Positioned(
               bottom: 100.sp,
@@ -50,19 +66,19 @@ class tindercard extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               )),
           Positioned(
-              bottom: 20.sp,
-              left: 90.sp,
-              child: CircleAvatar(
-                backgroundColor: themecontroller.colorPrimaryBlue,
-                radius: 30.sp,
-                child: SvgPicture.asset(
-                  "assets/icons/cross.svg",
-                  height: 20.sp,
-                  width: 20.sp,
-                  color: Colors.white,
-                ),
+            bottom: 20.sp,
+            left: 90.sp,
+            child: CircleAvatar(
+              backgroundColor: themecontroller.colorPrimaryBlue,
+              radius: 30.sp,
+              child: SvgPicture.asset(
+                "assets/icons/cross.svg",
+                height: 20.sp,
+                width: 20.sp,
+                color: Colors.white,
               ),
-              ),
+            ),
+          ),
           Positioned(
             bottom: 20.sp,
             right: 90.sp,

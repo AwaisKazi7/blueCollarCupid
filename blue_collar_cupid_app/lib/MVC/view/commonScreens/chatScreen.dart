@@ -119,7 +119,7 @@ class ChatScreen extends StatelessWidget {
                       SpringWidget(
                         onTap: () async {},
                         child: CircleAvatar(
-                          backgroundColor: themecontroller.colorPrimary,
+                          backgroundColor: themecontroller.colorPrimaryBlue,
                           radius: 20.sp,
                           child: SvgPicture.asset(
                             'assets/icons/send.svg',

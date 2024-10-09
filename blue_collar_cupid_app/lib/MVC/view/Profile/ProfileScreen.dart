@@ -1,3 +1,6 @@
+import 'package:blue_collar_cupid_app/MVC/view/Profile/profileSettingScreen.dart';
+import 'package:blue_collar_cupid_app/components/spring_widget.dart';
+import 'package:blue_collar_cupid_app/data/mockData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,129 +24,169 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-        value: themecontroller.systemUiOverlayStyleForwhite,
+        value: themecontroller.systemUiOverlayStyleforwhiteandtarnsparent,
         child: Scaffold(
           resizeToAvoidBottomInset: true,
-          body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: Constants.screenPadding),
-            child: Container(
-              width: double.infinity,
-              child: Column(
+          body: Column(
+            children: [
+              Stack(
+                alignment: Alignment.bottomCenter,
                 children: [
-                  SizedBox(
-                    height: 50.sp,
+                  Container(
+                    height: 300.sp,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: themecontroller.colorPrimaryBlue,
+                        borderRadius: BorderRadius.circular(30.sp)),
                   ),
-                  Center(
+                  Positioned(
+                    bottom: 70.sp,
                     child: Container(
-                      height: 150.sp,
-                      width: 150.sp,
+                      height: 120.sp,
+                      width: 120.sp,
                       padding: EdgeInsets.all(5.sp),
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: themecontroller.greenheadingColor
-                              .withOpacity(0.2)),
-                      child: ClipOval(
+                          color: Colors.white.withOpacity(0.5)),
+                      child: const ClipOval(
                         child: ImageWidget(
                             imageUrl:
-                                'https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg'),
+                                'https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart'),
                       ),
                     ),
                   ),
-                  Text(
-                    'salman lodhi'.toUpperCase(),
-                    style: TextStyle(
-                        fontSize: 20.sp,
-                        color: Colors.black.withOpacity(0.6),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 20.sp,
-                  ),
-                  Container(
-                    height: 350.sp,
-                    width: 280.sp,
-                    decoration: BoxDecoration(
-                      color: themecontroller.backgoundcolor.withOpacity(0.9),
-                      borderRadius: BorderRadius.circular(20.sp),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          spreadRadius: 1.5,
-                          blurRadius: 4,
-                          offset: const Offset(0, 2),
-                        )
-                      ],
+                  Positioned(
+                    bottom: 30.sp,
+                    child: Text(
+                      'Michael James'.toUpperCase(),
+                      style: TextStyle(
+                          fontSize: 20.sp,
+                          color: Colors.white.withOpacity(0.9),
+                          fontWeight: FontWeight.bold),
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: Constants.screenPadding,
-                          vertical: Constants.screenPadding),
-                      child: Column(children: [
-                        Profiletabs(
-                          icons: Icons.person,
-                          text: 'Edit Profile',
-                          ontap: () {
-                            Navigation.getInstance
-                                .screenNavigation(context, EditProfileScreen());
-                          },
-                        ),
-                        Profiletabs(
-                          icons: Icons.password,
-                          text: 'Change Password',
-                          ontap: () {
-                            Navigation.getInstance.screenNavigation(
-                                context, ChangePsswordScreen());
-                          },
-                        ),
-                        Profiletabs(
-                          icons: Icons.list,
-                          text: 'My Ordered Services',
-                          ontap: () {},
-                        ),
-                        Profiletabs(
-                          icons: Icons.list,
-                          text: 'My Order list',
-                          ontap: () {},
-                        ),
-                      ]),
+                  ),
+                  Positioned(
+                    bottom: 15.sp,
+                    child: Text(
+                      'MichaelJames@gmail.com',
+                      style: TextStyle(
+                        fontSize: 10.sp,
+                        color: Colors.white.withOpacity(0.9),
+                      ),
                     ),
-                  )
+                  ),
+                  Positioned(
+                      top: 30.sp,
+                      left: 20.sp,
+                      child: SpringWidget(
+                        onTap: () {
+                          Navigation.getInstance.RightToLeft_PageNavigation(
+                              context, EditProfileScreen());
+                        },
+                        child: CircleAvatar(
+                            radius: 20.sp,
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.edit,
+                              color: Colors.black,
+                              size: 15.sp,
+                            )),
+                      )),
+                  Positioned(
+                      top: 30.sp,
+                      right: 20.sp,
+                      child: SpringWidget(
+                        onTap: () {
+                          Navigation.getInstance.RightToLeft_PageNavigation(
+                              context, ProfileSettingScreen());
+                        },
+                        child: CircleAvatar(
+                          radius: 20.sp,
+                          backgroundColor: Colors.white,
+                          child: SvgPicture.asset(
+                            "assets/icons/threeDot.svg",
+                            height: 15.sp,
+                            width: 15.sp,
+                            color: Colors.black,
+                          ),
+                        ),
+                      )),
                 ],
               ),
-            ),
+              SizedBox(
+                height: 20.sp,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.screenPadding),
+                child: Column(
+                  children: [
+                    Text(
+                      'Bio',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15.sp),
+                    ),
+                    SizedBox(
+                      height: 20.sp,
+                    ),
+                    SizedBox(
+                      width: 300.sp,
+                      child: Text(
+                        'Passionate UI/UX designer based in Morocco,\nspecializing in remote freelance work',
+                        textAlign: TextAlign.center,
+                        maxLines: 5,
+                        softWrap: true,
+                        style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.sp,
+                    ),
+                    Text(
+                      'Your Profile gallery',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15.sp),
+                    ),
+                    SizedBox(
+                      height: 20.sp,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                          children: MockData.matchCards[0].picture
+                              .map(
+                                (e) => Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: 150.sp,
+                                    width: 100.sp,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20.sp))),
+                                    alignment: Alignment.center,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20.sp)),
+                                      child: ImageWidget(
+                                          height: 620.sp,
+                                          width: double.infinity,
+                                          imageUrl: e),
+                                    ),
+                                  ),
+                                ),
+                              )
+                              .toList()),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       );
     });
-  }
-}
-
-class Profiletabs extends StatelessWidget {
-  const Profiletabs({
-    super.key,
-    required this.icons,
-    required this.text,
-    this.ontap,
-  });
-  final IconData icons;
-  final String text;
-  final Function()? ontap;
-  @override
-  Widget build(BuildContext context) {
-    return GetBuilder<ThemeHelper>(
-      builder: (themecontroller) {
-        return ListTile(
-          leading: Icon(
-            icons,
-            color: themecontroller.colorPrimary,
-          ),
-          title: Text(
-            text,
-            style: TextStyle(color: Colors.black, fontSize: 13.sp),
-          ),
-          onTap: ontap,
-        );
-      },
-    );
   }
 }

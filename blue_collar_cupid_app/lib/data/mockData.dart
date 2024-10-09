@@ -107,41 +107,115 @@ class MockData {
     ),
     // Add more dummy messages as needed
   ];
-
   static List<MatchCard> matchCards = [
     MatchCard(
+      id: 1,
       name: "John Doe",
-      picture: "https://e1.pxfuel.com/desktop-wallpaper/427/494/desktop-wallpaper-jade-weber-posted-by-samantha-peltier-jade-weber.jpg",
+      picture: [
+        "https://d1fufvy4xao6k9.cloudfront.net/images/blog/posts/2023/08/hockerty_business_casual_outfits_for_woman_013a099b_0b8b_43a2_886f_754716f88f1a.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
       address: "1234 Elm Street, Springfield",
     ),
     MatchCard(
-      name: "Jane Smith",
-      picture: "https://e1.pxfuel.com/desktop-wallpaper/767/795/desktop-wallpaper-anna-von-klinski.jpg",
+      id: 2,
+      name: "Emily Johnson",
+      picture: [
+        "https://www.kopykitab.com/blog/wp-content/uploads/2022/03/Top-10-Best-Career-Options-For-Women-And-Girls-In-India.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
       address: "5678 Oak Avenue, Rivertown",
     ),
     MatchCard(
+      id: 3,
       name: "Camila Alvarez",
-      picture: "https://www.stylecraze.com/wp-content/uploads/2013/06/Different-Beautiful-American-Girls.jpg",
+      picture: [
+        "https://img.freepik.com/premium-photo/realistic-photo-professional-woman-elegant-professional-outfit-very-pretty_1089234-16901.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
       address: "9876 Pine Blvd, Smalltown",
     ),
     MatchCard(
-      name: "Bob Brown",
-      picture: "https://e1.pxfuel.com/desktop-wallpaper/682/554/desktop-wallpaper-दुनिया-की-सबसे-सुन्दर-लड़कियों-की-इमेज-डाउनलोड-most-beautiful-girl-for-mobile-phone-usa-girls-thumbnail.jpg",
+      id: 4,
+      name: "Mark Anderson",
+      picture: [
+        "https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
       address: "4321 Maple Road, Lakeview",
     ),
     MatchCard(
-      name: "Jane Smith",
-      picture: "https://e1.pxfuel.com/desktop-wallpaper/951/841/desktop-wallpaper-nazia-hussain-on-face-color-in-2020-thumbnail.jpg",
+      id: 5,
+      name: "Sophia Lee",
+      picture: [
+        "https://e1.pxfuel.com/desktop-wallpaper/951/841/desktop-wallpaper-nazia-hussain-on-face-color-in-2020-thumbnail.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
       address: "5678 Oak Avenue, Rivertown",
     ),
     MatchCard(
-      name: "Camila Alvarez",
-      picture: "https://e0.pxfuel.com/wallpapers/97/466/desktop-wallpaper-amanda-seyfried-eye-hollywood-actress.jpg",
+      id: 6,
+      name: "Isabella Garcia",
+      picture: [
+        "https://e0.pxfuel.com/wallpapers/97/466/desktop-wallpaper-amanda-seyfried-eye-hollywood-actress.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
       address: "9876 Pine Blvd, Smalltown",
     ),
     MatchCard(
-      name: "Bob Brown",
-      picture: "https://e1.pxfuel.com/desktop-wallpaper/682/554/desktop-wallpaper-दुनिया-की-सबसे-सुन्दर-लड़कियों-की-इमेज-डाउनलोड-most-beautiful-girl-for-mobile-phone-usa-girls-thumbnail.jpg",
+      id: 7,
+      name: "Liam Martinez",
+      picture: [
+        "https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
+      address: "4321 Maple Road, Lakeview",
+    ),
+    MatchCard(
+      id: 8,
+      name: "Grace Taylor",
+      picture: [
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
+      address: "4321 Maple Road, Lakeview",
+    ),
+    MatchCard(
+      id: 9,
+      name: "Lucas Wilson",
+      picture: [
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG"
+      ],
+      address: "4321 Maple Road, Lakeview",
+    ),
+    MatchCard(
+      id: 10,
+      name: "Daniel Thomas",
+      picture: [
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq7ahnmPrvK_0LxNW4J1UJrdEQHCS4U-kv0wC3Fluf583kP7vpsQgcP0szbXRYppe0VlEmhr09sSWqc_4cJL1Rj09Mt7yJTsNI_Zc9dyHVF7gamPfzZYPFSWinTj2GFqPeZg8yUSibVZ40_LYl8qi0JhLmMsDRNO3013qZ-oNzfCKFOf3NoRCvkYDhvw/s1200/what-is-clean-girl-aestheticby-lizbreygel-thumbnail-6.JPG",
+        "https://i.pinimg.com/736x/ee/8e/44/ee8e449f4612091d5533db3879404898.jpg",
+        "https://static.vecteezy.com/system/resources/previews/035/804/667/non_2x/ai-generated-korean-girl-in-a-black-blazer-and-a-white-shirt-standing-against-a-office-free-photo.jpg",
+        "https://img.freepik.com/free-photo/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343.jpg"
+      ],
       address: "4321 Maple Road, Lakeview",
     ),
   ];

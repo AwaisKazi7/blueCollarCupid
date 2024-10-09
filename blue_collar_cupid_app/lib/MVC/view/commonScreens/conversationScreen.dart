@@ -1,5 +1,6 @@
 import 'package:blue_collar_cupid_app/MVC/view/Profile/profileSettingScreen.dart';
 import 'package:blue_collar_cupid_app/MVC/view/commonScreens/chatScreen.dart';
+import 'package:blue_collar_cupid_app/components/custom_textfiled.dart';
 import 'package:blue_collar_cupid_app/components/image_widget.dart';
 import 'package:blue_collar_cupid_app/constant/constants.dart';
 import 'package:blue_collar_cupid_app/helper/getx_helper.dart';
@@ -18,6 +19,9 @@ class ConversationScreen extends StatelessWidget {
   final internetController = Get.put(InternetController());
 
   @override
+  final SearchController = TextEditingController();
+  final FocusNode _searchFocusNode = FocusNode();
+  RxBool showbox = false.obs;
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return Scaffold(
@@ -38,8 +42,7 @@ class ConversationScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CircleAvatar(
-                              backgroundColor:
-                                  themecontroller.colorPrimaryBlue,
+                              backgroundColor: themecontroller.colorPrimaryBlue,
                               radius: 27.sp,
                               child: CircleAvatar(
                                 child: ClipOval(
@@ -52,14 +55,88 @@ class ConversationScreen extends StatelessWidget {
                                 radius: 25.sp,
                               ),
                             ),
-                            CircleAvatar(
-                              radius: 20.sp,
-                              backgroundColor: Colors.grey.withOpacity(0.2),
-                              child: SvgPicture.asset(
-                                "assets/icons/search.svg",
-                                height: 17.sp,
-                                width: 17.sp,
-                                color: Colors.black,
+                            Obx(
+                              () => Visibility(
+                                visible: showbox.value,
+                                child: AnimatedOpacity(
+                                  duration: Duration(milliseconds: 200),
+                                  opacity: showbox.value ? 1.0 : 0.0,
+                                  child: SizedBox(
+                                    width: 270.sp,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        SizedBox(
+                                          width: 190.sp,
+                                          child: CustomTextFieldWidget(
+                                            enabled: true,
+                                            label: 'search',
+                                            controller: SearchController,
+                                            hintText: "",
+                                            inputType: TextInputType.name,
+                                            icon: Icon(
+                                              Icons.search,
+                                              size: 20.sp,
+                                              color: themecontroller
+                                                  .colorPrimaryBlue,
+                                            ),
+                                            focusNode: _searchFocusNode,
+                                            onsubmit: () {},
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return 'Please enter your start point';
+                                              }
+
+                                              return null;
+                                            },
+                                          ),
+                                        ),
+                                        SpringWidget(
+                                          onTap: () {
+                                            showbox.value = !showbox.value;
+                                          },
+                                          child: CircleAvatar(
+                                            radius: 20.sp,
+                                            backgroundColor:
+                                                Colors.grey.withOpacity(0.2),
+                                            child: SvgPicture.asset(
+                                              "assets/icons/cross.svg",
+                                              height: 17.sp,
+                                              width: 17.sp,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Obx(
+                              () => SpringWidget(
+                                onTap: () {
+                                  showbox.value = !showbox.value;
+                                },
+                                child: Visibility(
+                                  visible: !showbox.value,
+                                  child: AnimatedOpacity(
+                                    duration: Duration(milliseconds: 200),
+                                    opacity: !showbox.value ? 1.0 : 0.0,
+                                    child: CircleAvatar(
+                                      radius: 20.sp,
+                                      backgroundColor:
+                                          Colors.grey.withOpacity(0.2),
+                                      child: SvgPicture.asset(
+                                        "assets/icons/search.svg",
+                                        height: 17.sp,
+                                        width: 17.sp,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -69,8 +146,8 @@ class ConversationScreen extends StatelessWidget {
                         ),
                         Text(
                           'Chats',
-                          style: TextStyle(
-                              color: Colors.black, fontSize: 20.sp),
+                          style:
+                              TextStyle(color: Colors.black, fontSize: 20.sp),
                         ),
                       ],
                     ),

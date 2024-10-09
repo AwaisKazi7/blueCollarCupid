@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
           home: child,
         );
       },
-      child: welcomeScreen(),
+      child: const welcomeScreen(),
     );
   }
 }

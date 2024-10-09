@@ -60,6 +60,8 @@ dependencies:
   flutter_native_splash: ^2.3.4
   intl_phone_number_input: ^0.7.4
   flutter_card_swiper: ^7.0.1
+  list_wheel_scroll_view_nls: ^0.0.3
+  dotted_border: ^2.1.0
   
   
   

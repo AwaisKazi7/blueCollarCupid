@@ -32,7 +32,7 @@ class ChangePsswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-          value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
+          value: themecontroller.systemUiOverlayStyleForwhite,
           child: SafeArea(
             child: Scaffold(
               backgroundColor: themecontroller.backgoundcolor,
@@ -42,7 +42,7 @@ class ChangePsswordScreen extends StatelessWidget {
                   title: Text(
                     'Change Password',
                     style: TextStyle(
-                        color: themecontroller.colorPrimary,
+                        color: themecontroller.colorPrimaryBlue,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.sp),
@@ -118,9 +118,9 @@ class ChangePsswordScreen extends StatelessWidget {
                             margin: 0,
                             textColor: Colors.white,
                             backgroundColor:
-                                themecontroller.colorPrimary.withOpacity(0.8),
+                                themecontroller.colorPrimaryBlue,
                             borderColor:
-                                themecontroller.colorPrimary.withOpacity(0.8),
+                                themecontroller.colorPrimaryBlue,
                             onTap: () async {
                               if (_formkey.currentState!.validate()) {
                                 if (NewPasswordcontroller.text ==

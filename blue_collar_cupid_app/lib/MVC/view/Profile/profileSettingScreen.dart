@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:blue_collar_cupid_app/MVC/view/Profile/changePasswordScreen.dart';
 import 'package:blue_collar_cupid_app/MVC/view/Profile/editProfileScreen.dart';
 import 'package:blue_collar_cupid_app/MVC/view/commonScreens/FAQScreen.dart';
 import 'package:blue_collar_cupid_app/MVC/view/loginScreen/SignInScreen.dart';
@@ -33,7 +34,7 @@ class ProfileSettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
       return AnnotatedRegion(
-          value: themecontroller.systemUiOverlayStyleForwelcomeScreen,
+          value: themecontroller.systemUiOverlayStyleForwhite,
           child: SafeArea(
             child: Scaffold(
               backgroundColor: themecontroller.backgoundcolor,
@@ -43,7 +44,7 @@ class ProfileSettingScreen extends StatelessWidget {
                   title: Text(
                     'Settings',
                     style: TextStyle(
-                        color: themecontroller.colorPrimary,
+                        color: Colors.black,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.sp),
@@ -62,42 +63,46 @@ class ProfileSettingScreen extends StatelessWidget {
                           Navigation.getInstance.RightToLeft_PageNavigation(
                               context, EditProfileScreen());
                         },
-                        child: Obx(
-                          () => Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30.sp,
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: themecontroller.colorPrimaryBlue,
+                              radius: 27.sp,
+                              child: CircleAvatar(
                                 child: ClipOval(
                                   child: ImageWidget(
+                                      boxfit: BoxFit.fill,
+                                      width: 100.sp,
                                       imageUrl:
-                                          'https://images.squarespace-cdn.com/content/v1/5e6ece70bd2f8a6de8472818/714f685e-d0ba-40f9-8bb2-38722c1fd29c/Tiny+Avatar.png'),
+                                          'https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart'),
                                 ),
+                                radius: 25.sp,
                               ),
-                              SizedBox(
-                                width: 10.sp,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    DataStroge.FullName.value,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    'Edit Profile',
-                                    style: TextStyle(
-                                        color: themecontroller.colorPrimary,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              width: 10.sp,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Michael James',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  'Edit Profile',
+                                  style: TextStyle(
+                                      color: themecontroller.colorPrimaryBlue,
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            )
+                          ],
                         ),
                       ),
                       // ListTile(
@@ -113,87 +118,14 @@ class ProfileSettingScreen extends StatelessWidget {
                       // ),
                       ListTile(
                         title: Text(
-                          'My trips',
+                          "Change Passowrd",
                           style: TextStyle(
                               color: Colors.black, fontWeight: FontWeight.w700),
                         ),
                         onTap: () async {
-                          
+                          Navigation.getInstance
+                              .RightToLeft_PageNavigation(context, ChangePsswordScreen());
                         },
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Payments',
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w700),
-                        ),
-                        onTap: () async {
-                          
-                        },
-                      ),
-                      Visibility(
-                        visible: DataStroge.userRole.value == 'DRIVER',
-                        child: ListTile(
-                          title: Text(
-                            'Add Bank Details',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w700),
-                          ),
-                          onTap: () async {
-                            
-                          },
-                        ),
-                      ),
-                      Obx(
-                        () => Visibility(
-                          visible: DataStroge.DVS.value == 'FALSE',
-                          replacement: ListTile(
-                            title: Visibility(
-                              visible: DataStroge.userRole.value == 'USER',
-                              child: Text(
-                                "Switch to Driver Mode",
-                                style: TextStyle(
-                                    color: themecontroller.colorPrimary,
-                                    fontWeight: FontWeight.w700),
-                              ),
-                              replacement: Text(
-                                "Switch to User Mode",
-                                style: TextStyle(
-                                    color: themecontroller.colorPrimary,
-                                    fontWeight: FontWeight.w700),
-                              ),
-                            ),
-                            trailing: Visibility(
-                              visible: switchingRole.value,
-                              child: SizedBox(
-                                  width: 15.sp,
-                                  height: 15.sp,
-                                  child: CircularProgressIndicator(
-                                    color: themecontroller.colorPrimary,
-                                  )),
-                            ),
-                            onTap: () async {
-                              switchingRole.value = true;
-                              // await AppService.getInstance.switchRole(context);
-                              switchingRole.value = false;
-                              Navigation.getInstance
-                                  .pagePushAndReplaceNavigation(
-                                      context, SignInScreen());
-                            },
-                          ),
-                          child: ListTile(
-                            title: Text(
-                              "Become A Driver",
-                              style: TextStyle(
-                                  color: themecontroller.colorPrimary,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            onTap: () async {
-                            
-                            },
-                          ),
-                        ),
                       ),
                       ListTile(
                         title: Text(
