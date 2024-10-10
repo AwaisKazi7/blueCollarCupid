@@ -138,11 +138,12 @@ class otpVerificationScreen extends StatelessWidget {
                                 SizedBox(height: 20.sp),
                                 SizedBox(
                                   height: 25.sp,
+                                  
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       SizedBox(
-                                        width: 200.sp,
+                                        width: 120.sp,
                                         child: Text(
                                           "Didn't receive a code? ",
                                           textAlign: TextAlign.center,
@@ -176,7 +177,7 @@ class otpVerificationScreen extends StatelessWidget {
                                                       false;
                                                 },
                                                 child: SizedBox(
-                                                  width: 50.sp,
+                                                  width: 70.sp,
                                                   child: Text(
                                                     'Resend OTP',
                                                     textAlign: TextAlign.center,

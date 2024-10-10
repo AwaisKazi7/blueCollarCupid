@@ -4,15 +4,15 @@ import 'package:blue_collar_cupid_app/constant/theme.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-
 class OtpfieldWidget extends StatelessWidget {
   const OtpfieldWidget({
     super.key,
     required this.otpController,
+    this.validation,
   });
 
   final TextEditingController otpController;
-
+  final Function(String?)? validation;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeHelper>(builder: (themecontroller) {
